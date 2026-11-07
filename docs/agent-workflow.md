@@ -1,6 +1,20 @@
 # Run the project for the person
 
-This is the agent's runbook. The public guide asks the person to open this folder in Codex or Claude Code and describe what they want. You perform the commands below; do not hand them a terminal checklist.
+This is the agent's runbook. The public guide has four steps: open this folder in Codex or Claude Code, connect all three API keys, paste the brief, then compare and refine. You perform the commands below; do not hand them a terminal checklist.
+
+## Connect the three API keys before intake
+
+After the person opens the downloaded project, help them set up `KIE_AI_API_KEY`, `APIFY_API_KEY` and `FIRECRAWL_API_KEY` before they paste the starter brief. Direct them to the official account pages:
+
+| Key | Account setup |
+|---|---|
+| `KIE_AI_API_KEY` | Sign in or sign up at [Kie API Key Management](https://kie.ai/api-key), then create and copy a key. |
+| `APIFY_API_KEY` | Sign in or sign up at [Apify Settings → API & Integrations](https://console.apify.com/settings/integrations), then **Personal API tokens → + Create a new token** and copy it. |
+| `FIRECRAWL_API_KEY` | Sign in or sign up at [Firecrawl API Keys](https://www.firecrawl.dev/app/api-keys), then create and copy a key. |
+
+Create `.env` from `.env.example` in the project root, beside `README.md`. Preserve existing values; if `.env` already exists, add only missing settings without exposing its contents. Open the file in an available editor, or provide a direct local file link if opening an editor is unavailable. Have the person paste each key privately after its matching `=` and save it as `.env`, not `.env.txt`. Never request or expose keys in chat, logs, commands, public files or downloads. Check only whether each setting is present, without logging values.
+
+Explain that provider usage may cost extra. Connecting all three keys prepares the project; it does not require a test purchase or a provider call. Continue to use supplied assets, authorized tools and cached results where appropriate, and use the offline `render` command when the brief and assets are already prepared.
 
 ## 1. Turn the request into usable input
 
@@ -20,7 +34,7 @@ Check Python 3.10+ and this folder's virtual environment. If setup is needed, ru
 
 Use `.venv/bin/python` on macOS/Linux or `.venv\Scripts\python.exe` on Windows for subsequent Python commands. Keep the downloaded source folder in place: its fonts, prompts and references are runtime dependencies.
 
-### Choose the smallest set of services
+### Use the services required by the work
 
 | Work | First choice | Optional bundled provider |
 |---|---|---|
@@ -30,7 +44,7 @@ Use `.venv/bin/python` on macOS/Linux or `.venv\Scripts\python.exe` on Windows f
 | Portrait/banner photographs | Approved supplied assets or available image tools | Kie photo editing |
 | Rendering and local preview | Built-in offline renderer and server | No key required |
 
-Do not ask for all three API keys as a ritual. Native agent image tools are not guaranteed to exist, and a coding subscription does not pay for separate provider requests. If an external service is necessary, explain that specific dependency and its usage cost. Create/open the local `.env` from `.env.example` in an available editor and ask the person to fill the needed value privately. Never ask them to paste keys into chat. Check presence without logging values. If opening an editor is unavailable, link them directly to the local file. Leave unused provider placeholders alone.
+All three keys are configured during onboarding; that does not mean every job uses all three providers. Native agent image tools are not guaranteed to exist, and a coding subscription does not pay for separate provider requests. Explain a provider's role and usage cost when using it. If a configured key is missing or invalid, reopen `.env` for the person to update privately; never ask them to paste it into chat.
 
 `create` can use paid Kie calls for copy, photos, cutouts **and its final buyer review**. Even `create --brief ... --reuse-portrait ...` reaches that review. For a package prepared with your own copy and supplied/generated assets, use **`render`**, which makes no provider calls. Do not silently switch from an offline path to a paid one. Stay within the request's authorized work and budget; reuse cached tasks instead of blindly buying retries. See [provider recovery](providers-kie.md).
 
