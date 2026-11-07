@@ -371,6 +371,24 @@ def audit_design_details(report):
 
 
 def render_package(brief, portrait_path, output, *, style=None, location='', background_path=None, banner_photo_path=None):
+    """Do not leave the local preview permanently busy after a render error."""
+    try:
+        return _render_package(brief, portrait_path, output, style=style, location=location,
+                               background_path=background_path, banner_photo_path=banner_photo_path)
+    except (Exception, KeyboardInterrupt):
+        qa_path = Path(output) / 'qa.json'
+        try:
+            qa = json.loads(qa_path.read_text())
+            if qa.get('acceptance') == 'render_in_progress':
+                write_json(qa_path, {'passed': False, 'acceptance': 'render_failed',
+                                     'visual_review': 'required',
+                                     'failures': ['Rendering did not complete. Ask the agent to fix the inputs and rerender.']})
+        except (OSError, ValueError, AttributeError):
+            pass
+        raise
+
+
+def _render_package(brief, portrait_path, output, *, style=None, location='', background_path=None, banner_photo_path=None):
     from playwright.sync_api import sync_playwright
     validate_brief(brief)
     style=style or brief['selected_style']; output=Path(output)

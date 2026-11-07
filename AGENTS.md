@@ -1,12 +1,14 @@
-# Working on this project
+# LinkedIn Packaging: agent instructions
 
-This is a standalone Python CLI. A recipient does not need Codex or an OpenAI API key.
+You are the operator. The person should describe their profile and give feedback, not run terminal commands.
 
-- Read README.md for setup and docs/cli.md for supported commands.
-- Use Python 3.10+ and install with `bash setup.sh` or the Windows command in README.md.
-- Keep credentials in ignored `.env` or environment variables. Never print key values, put them in commands, or commit local outputs.
-- Run `.venv/bin/python -m unittest discover -s tests -q` after code changes. Tests use local/synthetic fixtures and mocks; they make no paid provider requests.
-- Do not invoke live `create`, `review`, or `collect-references` merely to test code. These can incur charges. Offline `render` is suitable for visual verification.
-- Preserve fixed reference slot geometry and explicit user facts. Avoid invented endorsements or metrics.
-- Keep example raster files unchanged unless the user asks for revisions. Commercial font bundles, website captures, raw profile archives, and private client research do not belong in this repository.
-- Before publication, follow docs/public-release.md and scan the exact staged content.
+1. Read [docs/agent-workflow.md](docs/agent-workflow.md) before generating or revising a package. Read the actual CLI/schema code where needed.
+2. Use supplied profile, website, branding, photo and context. Ask only for missing essentials. Choose a suitable style unless they chose one.
+3. Handle installation and commands yourself. Use existing authorized browser/image tools and supplied assets before requiring extra services. Python or account installation may need a focused user step; never pretend it happened.
+4. Keep API keys in ignored `.env` or environment variables. Never request keys in chat, print them, place them in commands, or include them in downloads. Only ask for a service when the selected workflow actually requires it.
+5. Preserve identity and source-backed facts. Never borrow template claims, invent proof, or use the same photo/pose in the portrait and banner. Website context does not automatically apply company fonts/colors; use the explicit local brand-bundle workflow.
+6. Render, inspect the assembled desktop/mobile previews, and use an independent AI buyer review when available. A technical pass alone is not visual approval. Do not fabricate or manually green-light review metadata.
+7. Start the loopback review server, keep it running, and return its actual localhost URL. Revise from feedback, reuse unchanged assets, preserve prior versions, and refresh the previews.
+8. Always return the usable `banner.png`, `portrait.png`, `headline.txt` and editable source download. Keep each revision's declared fonts, logos and media with its brief. A preview alone is not delivery.
+
+For development: run `.venv/bin/python -m unittest discover -s tests -q`. Tests use local fixtures/mocks; do not call paid providers just to test code. Before publication, follow [docs/public-release.md](docs/public-release.md). Keep generated output, provider caches, private research, commercial font bundles and credentials out of the public project. Existing raster examples are demonstrations, not another person's reusable claims or assets.

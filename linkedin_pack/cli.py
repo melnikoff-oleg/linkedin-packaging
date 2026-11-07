@@ -493,6 +493,9 @@ def build_parser():
     command=commands.add_parser('review',help='Independently judge finished desktop/mobile profile images as a prospective buyer.')
     command.add_argument('--output',required=True,help='Rendered package folder containing qa.json and neutral review images.')
     command.add_argument('--audience',required=True,help='Concise buyer persona only; do not include creator rationale or expected verdict.')
+    command = commands.add_parser('serve', help='Open a local review page with upload and editable-source downloads.')
+    command.add_argument('--output', default=str(ROOT / 'output'), help='A package folder or parent output folder.')
+    command.add_argument('--port', type=int, default=8765, help='Local port (0 chooses an available port).')
     command = commands.add_parser('export', help='Create a shareable ZIP without API keys or caches.')
     command.add_argument('--output', default=str(ROOT / 'dist' / 'linkedin-package-shareable.zip'))
     commands.add_parser('styles', help='List the ten available reference directions.')
@@ -515,6 +518,9 @@ def main(argv=None):
                                background=args.background,banner_photo=Path(args.banner_photo) if args.banner_photo else None) else 2
         if args.command=='review':
             return 0 if _run_independent_review(Path(args.output),args.audience) else 2
+        if args.command == 'serve':
+            from .serve import serve
+            return serve(args.output, args.port)
         if args.command == 'styles':
             for key, style in STYLES.items():
                 print(f'{key:20} {style["name"]}')

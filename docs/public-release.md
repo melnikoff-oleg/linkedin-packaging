@@ -27,3 +27,13 @@ Working-file mode excludes local configuration, install/cache directories and ge
 Do not publish commercial font files or HTML that embeds them. The public example gallery uses final raster outputs. Raw public-profile datasets, website tracking captures, private source dossiers, `.env` backups and provider caches belong outside the public source tree. See [third-party notices](../THIRD_PARTY.md).
 
 `build_reference_pack.py` and related authoring scripts are retained because they are useful development helpers and are covered by synthetic tests. Their historical calibration archives are not included. The ordinary CLI does not need those archives.
+
+## Website download
+
+After staging and committing the intended source, build the website ZIP from the exact Git index:
+
+```bash
+.venv/bin/python scripts/build_public_download.py --output /path/to/site/public/downloads/linkedin-packaging.zip --credentials /path/to/private/working-folder
+```
+
+The builder never copies untracked working files. It checks credentials, paths, font licenses and archive contents, then writes the ZIP plus a JSON manifest with its hash and source commit/tree. Verify a fresh extraction, agent instructions, setup, local preview and upload/source downloads before deploying. Publish both artifacts together; the direct download is served as a static attachment.

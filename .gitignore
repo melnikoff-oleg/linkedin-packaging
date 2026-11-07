@@ -43,6 +43,12 @@ build/
 .DS_Store
 Thumbs.db
 
+# Agent-local permissions and isolated workspaces
+.claude/settings.local.json
+.claude/worktrees/
+.codex/auth.json
+.codex/sessions/
+
 # Local capture / research archives are never required by the CLI
 brands/
 test_account/

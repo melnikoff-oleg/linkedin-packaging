@@ -2,7 +2,7 @@
 
 The generic `linkedin_pack/company_brand.py` support accepts a local brand bundle containing a manifest, authored CSS, provenance, and font files with SHA-256 hashes. Use your own appropriately licensed assets. A publicly downloadable font is not automatically licensed for redistribution.
 
-A prepared brief may specify `"company_brand": {"manifest": "company-brand/brand.json"}`. Keep that bundle beside the brief. Offline `render` copies and validates declared dependencies; it does not scrape or guess a company's brand system.
+A prepared brief may specify `"company_brand": {"manifest": "company-brand/brand.json"}`. Keep that bundle inside every output revision. Before rendering to a new destination, use `copy_brand_bundle(source_manifest, destination / "company-brand")` from `linkedin_pack.company_brand` to copy its declared dependencies. The CLI copies prepared logos but does not copy the brand bundle automatically. Offline rendering validates the local bundle; it does not scrape or guess a company's brand system.
 
 A manifest has this shape (replace all example values):
 
