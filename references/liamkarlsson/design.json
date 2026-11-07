@@ -1,0 +1,145 @@
+{
+  "id": "liamkarlsson",
+  "name": "Liam Karlsson",
+  "label": "Navy and gold engraved ecosystem",
+  "source_url": "https://www.linkedin.com/in/liamkarlsson/",
+  "source_dimensions": [
+    1400,
+    349
+  ],
+  "units": "source-raster px; normalized bounds are fractions; all geometry/font estimates",
+  "palette": {
+    "background": "#072A76",
+    "text": "#FFFFFF",
+    "accent": "#C9A36F",
+    "muted": "#E7DDCE",
+    "portrait_background": "#072A76"
+  },
+  "typography": {
+    "family": "Inter, Arial, sans-serif",
+    "family_verified": false,
+    "weight": 750,
+    "title_size_px": 49,
+    "title_line_height": 1.2,
+    "title_letter_spacing_px": -0.6
+  },
+  "layout": {
+    "text_x": 0.282,
+    "text_y": 0.15,
+    "text_width": 0.67,
+    "text_align": "right",
+    "reserved_left": 0.27,
+    "proof_y": 0.6,
+    "has_banner_portrait": false
+  },
+  "effects": [
+    "navy/gold stippled engraved cloud-wave texture",
+    "opaque navy proof capsule",
+    "white ecosystem marks"
+  ],
+  "elements": [
+    {
+      "name": "Background",
+      "bounds_px": [
+        0,
+        0,
+        1400,
+        349
+      ],
+      "bounds_normalized": [
+        0.0,
+        0.0,
+        1.0,
+        1.0
+      ],
+      "observation": "Navy field with dense tan/gold stippling forming abstract billowing cloud/wave shapes."
+    },
+    {
+      "name": "Citera brand",
+      "bounds_px": [
+        35,
+        20,
+        190,
+        50
+      ],
+      "bounds_normalized": [
+        0.025,
+        0.0573,
+        0.1357,
+        0.1433
+      ],
+      "observation": "White checker-like circular symbol and serif wordmark, top-left."
+    },
+    {
+      "name": "Main statement",
+      "bounds_px": [
+        394,
+        58,
+        947,
+        102
+      ],
+      "bounds_normalized": [
+        0.2814,
+        0.1662,
+        0.6764,
+        0.2923
+      ],
+      "observation": "“Grow Traffic and Revenue from” / “AI Search, GEO, AEO and SEO on Autopilot”; right aligned white bold type."
+    },
+    {
+      "name": "Proof capsule",
+      "bounds_px": [
+        966,
+        207,
+        377,
+        45
+      ],
+      "bounds_normalized": [
+        0.69,
+        0.5931,
+        0.2693,
+        0.1289
+      ],
+      "observation": "Navy rounded rectangle: “Trusted by 1000+ Brands & Agencies” in white monospaced/bold small type."
+    },
+    {
+      "name": "Platform strip",
+      "bounds_px": [
+        766,
+        273,
+        578,
+        43
+      ],
+      "bounds_normalized": [
+        0.5471,
+        0.7822,
+        0.4129,
+        0.1232
+      ],
+      "observation": "Row of 11 white AI/search/platform symbols. Recognizable G, Bing, Meta infinity, OpenAI knot and asterisk among others; ambiguous marks should not be confidently named."
+    }
+  ],
+  "portrait": {
+    "source_dimensions": [
+      800,
+      800
+    ],
+    "identity_source": "target person only",
+    "background": "#072A76",
+    "guidance": "The 800×800 portrait repeats the same navy/gold texture behind a warm, nearly frontal subject. Hair begins y≈60 (7.5%); eye line y≈309 (39%); chin y≈522 (65%). Upper body fills much of the lower half and head spans approximately x=250–579 (41%). Large dark glasses are a key recognizable feature, with visible cool reflections in the lenses. A light striped shirt and dark padded vest introduce professional/casual texture; the small garment badge remains visible. Lighting is soft and warm from front-left, but this image is less crisp than the others and the hair/background boundary has some softness. The face is relaxed with closed mouth, direct gaze and a slight angle. The patterned backdrop can compete with fine hair detail; a cleaner area directly behind the head would improve separation."
+  },
+  "do_not_copy": [
+    "reference identity",
+    "reference-specific company marks",
+    "unverified endorsements",
+    "reference follower or client counts",
+    "awards without evidence",
+    "expired event dates"
+  ],
+  "quality_notes": [
+    "Validate circle crop and lower-left overlap",
+    "Assess mobile readability at realistic display scale",
+    "Font identification is approximate",
+    "Separate observed details from verified personal claims"
+  ]
+}

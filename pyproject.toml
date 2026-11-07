@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "linkedin-package"
+version = "1.0.0"
+description = "Reference-led LinkedIn banners, portraits and headlines"
+requires-python = ">=3.10"
+dependencies = ["Pillow>=11,<13", "playwright>=1.55,<2"]
+
+[project.scripts]
+linkedin-package = "linkedin_pack.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["linkedin_pack*"]
+

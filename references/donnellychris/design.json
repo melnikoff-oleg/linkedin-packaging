@@ -1,0 +1,160 @@
+{
+  "id": "donnellychris",
+  "name": "Chris Donnelly",
+  "label": "Orange product authority",
+  "source_url": "https://www.linkedin.com/in/donnellychris/",
+  "source_dimensions": [
+    1400,
+    349
+  ],
+  "units": "source-raster px; normalized bounds are fractions; all geometry/font estimates",
+  "palette": {
+    "background": "#FE4D00",
+    "text": "#FFFFFF",
+    "accent": "#FFFFFF",
+    "muted": "#FFE2CA",
+    "portrait_background": "#FF5000"
+  },
+  "typography": {
+    "family": "Inter, Arial, sans-serif",
+    "family_verified": false,
+    "weight": 500,
+    "title_size_px": 71,
+    "title_line_height": 1.0,
+    "title_letter_spacing_px": -2
+  },
+  "layout": {
+    "text_x": 0.61,
+    "text_y": 0.15,
+    "text_width": 0.34,
+    "text_align": "right",
+    "reserved_left": 0.27,
+    "proof_y": 0.67,
+    "has_banner_portrait": false
+  },
+  "effects": [
+    "white halftone globe rising from bottom center",
+    "translucent rounded CTA capsule"
+  ],
+  "elements": [
+    {
+      "name": "Background",
+      "bounds_px": [
+        0,
+        0,
+        1400,
+        349
+      ],
+      "bounds_normalized": [
+        0.0,
+        0.0,
+        1.0,
+        1.0
+      ],
+      "observation": "Full orange field; no border; a white dotted globe is masked by the bottom edge."
+    },
+    {
+      "name": "Searchable logo",
+      "bounds_px": [
+        70,
+        60,
+        230,
+        36
+      ],
+      "bounds_normalized": [
+        0.05,
+        0.1719,
+        0.1643,
+        0.1032
+      ],
+      "observation": "White symbol and custom wordmark. Brand marker, not a credibility endorsement."
+    },
+    {
+      "name": "AI marks",
+      "bounds_px": [
+        419,
+        61,
+        414,
+        120
+      ],
+      "bounds_normalized": [
+        0.2993,
+        0.1748,
+        0.2957,
+        0.3438
+      ],
+      "observation": "OpenAI knot, radiating asterisk, four-point diamond, each white; evenly spaced across upper middle."
+    },
+    {
+      "name": "Main statement",
+      "bounds_px": [
+        855,
+        55,
+        470,
+        139
+      ],
+      "bounds_normalized": [
+        0.6107,
+        0.1576,
+        0.3357,
+        0.3983
+      ],
+      "observation": "“Drive revenue” / “from AI Search”; two right-aligned lines."
+    },
+    {
+      "name": "CTA pill",
+      "bounds_px": [
+        417,
+        236,
+        572,
+        60
+      ],
+      "bounds_normalized": [
+        0.2979,
+        0.6762,
+        0.4086,
+        0.1719
+      ],
+      "observation": "“Get started for free via my featured section!” plus circled down arrow; peach translucent fill and thin light edge."
+    },
+    {
+      "name": "Award strip",
+      "bounds_px": [
+        1074,
+        232,
+        250,
+        66
+      ],
+      "bounds_normalized": [
+        0.7671,
+        0.6648,
+        0.1786,
+        0.1891
+      ],
+      "observation": "Four small G2-style “High Performer” badges; tiny category text is not reliably readable at this size."
+    }
+  ],
+  "portrait": {
+    "source_dimensions": [
+      800,
+      800
+    ],
+    "identity_source": "target person only",
+    "background": "#FF5000",
+    "guidance": "The 800×800 portrait is a clean cutout against essentially flat orange, matching the banner's saturated hue. Hair begins about y=57 (7% top margin); chin is around y=546 (68%); shoulders extend beyond both bottom corners. The head spans roughly x=224–579 (44% of the frame), while the chest fills the bottom third. The face is nearly frontal with a slight angle, direct eye contact, and a broad natural smile. Black crew-neck clothing reduces competition with the face. Light is broad and soft, with gentle shadow on the image-right side, visible skin texture, and no dramatic rim light. The eyes sit around y=285 (36%). This crop is close enough for recognition at avatar size while the hair remains inside the circular crop. The orange edge treatment around hair is relatively crisp; avoid reproducing any overly hard mask or halo."
+  },
+  "do_not_copy": [
+    "reference identity",
+    "reference-specific company marks",
+    "unverified endorsements",
+    "reference follower or client counts",
+    "awards without evidence",
+    "expired event dates"
+  ],
+  "quality_notes": [
+    "Validate circle crop and lower-left overlap",
+    "Assess mobile readability at realistic display scale",
+    "Font identification is approximate",
+    "Separate observed details from verified personal claims"
+  ]
+}

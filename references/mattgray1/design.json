@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "measurement_basis": "Direct visual inspection of downloaded raster; dimensions/typography approximate. Fonts are reproduction candidates, not identified originals.",
+  "font_confidence": "estimated",
+  "essential_content_safe_region": {
+    "x_min": 0.3,
+    "y_min": 0.08,
+    "x_max": 0.96,
+    "y_max": 0.9
+  },
+  "portrait_identity_policy": "Preserve target person only; reference portrait provides crop, lighting and palette, never facial features.",
+  "id": "mattgray1",
+  "name": "Alpine editorial / single-line proposition",
+  "template": "scenic_serif",
+  "source_size": [
+    1400,
+    350
+  ],
+  "palette": {
+    "background": "#17241D",
+    "foreground": "#FFFFFF",
+    "accent": "#C6DD61",
+    "secondary": "#7F8A63",
+    "sky": "#BFD8E6"
+  },
+  "fonts": {
+    "display": "Georgia",
+    "body": "Inter",
+    "fallback": "serif"
+  },
+  "layout": {
+    "text_box": [
+      0.099,
+      0.217,
+      0.584,
+      0.12
+    ],
+    "title_px": 35,
+    "title_weight": 400,
+    "title_line_height": 1.18,
+    "title_tracking_px": -0.2,
+    "portrait_box": [
+      0.697,
+      0.14,
+      0.162,
+      0.86
+    ],
+    "overlay": "dark left-to-clear right gradient",
+    "preferred_max_title_chars": 65
+  },
+  "elements": [
+    "original_landscape_photo",
+    "subtle_left_darkening",
+    "one_serif_sentence",
+    "single_lime_phrase",
+    "optional_far_right_target_portrait"
+  ],
+  "portrait": {
+    "background": "natural softly blurred outdoor greenery and architecture",
+    "crop": "head-and-shoulders",
+    "head_top": 0.07,
+    "eye_line": 0.38,
+    "chin": 0.75,
+    "lighting": "soft natural daylight",
+    "expression": "warm natural smile",
+    "clothing": "warm neutral casual-professional"
+  }
+}

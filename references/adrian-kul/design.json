@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "measurement_basis": "Direct visual inspection of downloaded raster; dimensions/typography approximate. Fonts are reproduction candidates, not identified originals.",
+  "font_confidence": "estimated",
+  "essential_content_safe_region": {
+    "x_min": 0.3,
+    "y_min": 0.08,
+    "x_max": 0.96,
+    "y_max": 0.9
+  },
+  "portrait_identity_policy": "Preserve target person only; reference portrait provides crop, lighting and palette, never facial features.",
+  "id": "adrian-kul",
+  "name": "White minimal / quiet service statement",
+  "template": "minimal_white",
+  "source_size": [
+    1400,
+    350
+  ],
+  "palette": {
+    "background": "#FFFFFF",
+    "foreground": "#080808",
+    "accent": "#080808",
+    "secondary": "#F7F7F7",
+    "geometry": "#FAFAFA"
+  },
+  "fonts": {
+    "display": "Inter",
+    "body": "Inter",
+    "fallback": "Arial"
+  },
+  "layout": {
+    "text_box": [
+      0.484,
+      0.806,
+      0.384,
+      0.08
+    ],
+    "title_px": 25,
+    "title_weight": 600,
+    "title_line_height": 1.15,
+    "title_tracking_px": -0.4,
+    "mark_box": [
+      0.484,
+      0.274,
+      0.034,
+      0.12
+    ],
+    "geometry_box": [
+      0.457,
+      0,
+      0.543,
+      0.723
+    ],
+    "preferred_max_title_chars": 60
+  },
+  "elements": [
+    "white_field",
+    "very_faint_rounded_geometry",
+    "original_small_monogram",
+    "one_lower_right_sentence"
+  ],
+  "portrait": {
+    "background": "#F3F3F3",
+    "crop": "head-and-shoulders",
+    "head_top": 0.09,
+    "eye_line": 0.35,
+    "chin": 0.65,
+    "lighting": "soft frontal",
+    "expression": "natural approachable smile",
+    "clothing": "dark neutral professional",
+    "source_alpha": "Reference is circular with transparent corners; output target should be square, LinkedIn applies circle."
+  }
+}

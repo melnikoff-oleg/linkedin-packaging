@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "measurement_basis": "Direct visual inspection of downloaded raster; dimensions/typography approximate. Fonts are reproduction candidates, not identified originals.",
+  "font_confidence": "estimated",
+  "essential_content_safe_region": {
+    "x_min": 0.3,
+    "y_min": 0.08,
+    "x_max": 0.96,
+    "y_max": 0.9
+  },
+  "portrait_identity_policy": "Preserve target person only; reference portrait provides crop, lighting and palette, never facial features.",
+  "id": "laraacostar",
+  "name": "Black/red editorial / authority strip",
+  "template": "editorial_portrait",
+  "source_size": [
+    1400,
+    350
+  ],
+  "palette": {
+    "background": "#0B0B0B",
+    "foreground": "#FFFFFF",
+    "accent": "#D34833",
+    "secondary": "#642D25",
+    "footer": "#211D1F"
+  },
+  "fonts": {
+    "display": "Inter",
+    "body": "Inter",
+    "fallback": "Arial"
+  },
+  "layout": {
+    "text_box": [
+      0.554,
+      0.166,
+      0.411,
+      0.25
+    ],
+    "title_px": 45,
+    "title_weight": 750,
+    "title_line_height": 1.06,
+    "title_tracking_px": -1.7,
+    "body_px": 13,
+    "proof_tracking_px": 3,
+    "portrait_box": [
+      0.326,
+      0.031,
+      0.201,
+      0.969
+    ],
+    "proof_box": [
+      0.528,
+      0.703,
+      0.472,
+      0.297
+    ],
+    "eyebrow_box": [
+      0.554,
+      0.503,
+      0.384,
+      0.08
+    ]
+  },
+  "elements": [
+    "near_black_field",
+    "warm_radial_halo",
+    "center_target_portrait",
+    "large_red_white_statement",
+    "tracked_credibility_line",
+    "monochrome_footer"
+  ],
+  "portrait": {
+    "background": "orange-to-muted-red gradient",
+    "background_start": "#E78427",
+    "background_end": "#D64F43",
+    "crop": "very close portrait",
+    "head_top": 0.04,
+    "eye_line": 0.42,
+    "chin": 0.78,
+    "lighting": "soft directional studio",
+    "expression": "composed direct gaze",
+    "clothing": "neutral"
+  }
+}

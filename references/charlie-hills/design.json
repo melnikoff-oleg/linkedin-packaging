@@ -1,0 +1,145 @@
+{
+  "id": "charlie-hills",
+  "name": "Charlie Hills 🦩",
+  "label": "Blue grid workshop energy",
+  "source_url": "https://www.linkedin.com/in/charlie-hills/",
+  "source_dimensions": [
+    1400,
+    349
+  ],
+  "units": "source-raster px; normalized bounds are fractions; all geometry/font estimates",
+  "palette": {
+    "background": "#FFFFFF",
+    "text": "#202121",
+    "accent": "#0875D3",
+    "muted": "#7B7B7B",
+    "portrait_background": "#234DAD"
+  },
+  "typography": {
+    "family": "Inter, Arial, sans-serif",
+    "family_verified": false,
+    "weight": 750,
+    "title_size_px": 54,
+    "title_line_height": 1.07,
+    "title_letter_spacing_px": -2
+  },
+  "layout": {
+    "text_x": 0.264,
+    "text_y": 0.25,
+    "text_width": 0.36,
+    "text_align": "left",
+    "reserved_left": 0.26,
+    "proof_y": 0.63,
+    "has_banner_portrait": true,
+    "portrait_x": 0.63
+  },
+  "effects": [
+    "very faint 35 px square grid",
+    "overlapping circular portrait group with white rings and labels"
+  ],
+  "elements": [
+    {
+      "name": "Background",
+      "bounds_px": [
+        0,
+        0,
+        1400,
+        349
+      ],
+      "bounds_normalized": [
+        0.0,
+        0.0,
+        1.0,
+        1.0
+      ],
+      "observation": "White canvas with faint gray square grid approximately every 35 source px."
+    },
+    {
+      "name": "Main statement",
+      "bounds_px": [
+        370,
+        93,
+        489,
+        109
+      ],
+      "bounds_normalized": [
+        0.2643,
+        0.2665,
+        0.3493,
+        0.3123
+      ],
+      "observation": "“How to (actually) win” / “on LinkedIn right now”; “LinkedIn right now” is blue."
+    },
+    {
+      "name": "Event detail",
+      "bounds_px": [
+        370,
+        222,
+        484,
+        24
+      ],
+      "bounds_normalized": [
+        0.2643,
+        0.6361,
+        0.3457,
+        0.0688
+      ],
+      "observation": "“Thu 5 Nov · 5pm UK · with my guests”; first phrase darker/bolder, remainder gray."
+    },
+    {
+      "name": "Guest group",
+      "bounds_px": [
+        885,
+        81,
+        478,
+        177
+      ],
+      "bounds_normalized": [
+        0.6321,
+        0.2321,
+        0.3414,
+        0.5072
+      ],
+      "observation": "Four overlapping circular portraits; central Charlie circle larger, all white borders."
+    },
+    {
+      "name": "Guest captions",
+      "bounds_px": [
+        892,
+        194,
+        469,
+        63
+      ],
+      "bounds_normalized": [
+        0.6371,
+        0.5559,
+        0.335,
+        0.1805
+      ],
+      "observation": "Fatima Khan 116K followers; Charlie Hills 260K followers; Mischa Collins 72K followers; Magali De Reu 48K followers. Colored rounded badges."
+    }
+  ],
+  "portrait": {
+    "source_dimensions": [
+      800,
+      800
+    ],
+    "identity_source": "target person only",
+    "background": "#234DAD",
+    "guidance": "The 800×800 standalone avatar uses a rich royal-blue softly textured studio background. Hair begins y≈93 (12%); head center is slightly right of frame center; eyes sit around y≈325 (41%); chin around y≈604 (76%). Head width is roughly 381 px (48%). The body is angled slightly while the face returns toward the camera. An open smile, visible teeth, short beard and casual black collared shirt communicate warmth and accessibility. Soft directional light from image-left illuminates the forehead/cheek with modest shadow on the opposite side. Blue helps the warm face stand out and matches the banner's keyword emphasis; it is not the exact same blue, which adds depth rather than looking like a flat template."
+  },
+  "do_not_copy": [
+    "reference identity",
+    "reference-specific company marks",
+    "unverified endorsements",
+    "reference follower or client counts",
+    "awards without evidence",
+    "expired event dates"
+  ],
+  "quality_notes": [
+    "Validate circle crop and lower-left overlap",
+    "Assess mobile readability at realistic display scale",
+    "Font identification is approximate",
+    "Separate observed details from verified personal claims"
+  ]
+}

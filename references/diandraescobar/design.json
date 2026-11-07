@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "measurement_basis": "Direct visual inspection of downloaded raster; dimensions/typography approximate. Fonts are reproduction candidates, not identified originals.",
+  "font_confidence": "estimated",
+  "essential_content_safe_region": {
+    "x_min": 0.3,
+    "y_min": 0.08,
+    "x_max": 0.96,
+    "y_max": 0.9
+  },
+  "portrait_identity_policy": "Preserve target person only; reference portrait provides crop, lighting and palette, never facial features.",
+  "id": "diandraescobar",
+  "name": "Teal conversion / capability-card collage",
+  "template": "proof_collage",
+  "source_size": [
+    1400,
+    349
+  ],
+  "palette": {
+    "background": "#012324",
+    "foreground": "#FFFFFF",
+    "accent": "#48A2A4",
+    "secondary": "#075B54",
+    "card": "#FFFFFF"
+  },
+  "fonts": {
+    "display": "Inter",
+    "body": "Inter",
+    "fallback": "Arial"
+  },
+  "layout": {
+    "text_box": [
+      0.751,
+      0.109,
+      0.21,
+      0.51
+    ],
+    "title_px": 62,
+    "title_weight": 750,
+    "title_line_height": 0.98,
+    "title_tracking_px": -1.5,
+    "body_px": 19,
+    "card_region": [
+      0.206,
+      0.089,
+      0.369,
+      0.797
+    ],
+    "portrait_box": [
+      0.508,
+      0.034,
+      0.204,
+      0.966
+    ],
+    "card_radius_px": 12,
+    "cta_box": [
+      0.759,
+      0.679,
+      0.19,
+      0.066
+    ]
+  },
+  "elements": [
+    "teal_glow",
+    "staggered_white_cards",
+    "center_right_target_portrait",
+    "stacked_three_line_title",
+    "teal_underlines",
+    "short_cta"
+  ],
+  "portrait": {
+    "background": "#075B54",
+    "crop": "close head-and-shoulders",
+    "head_top": 0.04,
+    "eye_line": 0.36,
+    "chin": 0.65,
+    "lighting": "soft frontal and above",
+    "expression": "approachable natural smile",
+    "clothing": "light neutral"
+  }
+}

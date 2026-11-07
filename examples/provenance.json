@@ -1,0 +1,1091 @@
+{
+  "title": "LinkedIn packaging examples",
+  "generated_on": "2026-11-07",
+  "comparison_method": "Reconstructed LinkedIn-style cards, not live LinkedIn screenshots. Before uses each subject’s saved original headline and portrait; Kayla also uses her saved original banner. After uses the final company-branded package. All desktop cards remain 792 pixels wide; none are cropped or stretched.",
+  "after_media_label": "AI-edited portraits and, where present, AI-edited banner photographs. Banner composition and typography are rendered from HTML.",
+  "attribution_note": "Independent design examples. Profile subjects, company marks and referenced creators are identified for attribution; no affiliation or endorsement is implied.",
+  "people": [
+    {
+      "id": "kayla",
+      "folder": "kayla-np-digital",
+      "name": "Kayla Bautista",
+      "company_brand": "NP Digital",
+      "before_caption": "Original saved headline, portrait and San Diego skyline banner; reconstructed profile preview.",
+      "source_provenance": {
+        "profile_url": "https://www.linkedin.com/in/kaylambautista/",
+        "original_headline": "NP Digital Sr. Social Media Manager | San Diego Padres Fan Engagement | Helping Brands Boost Engagement & Brand Awareness",
+        "portrait_source": "examples/kayla-np-digital/source/portrait.png",
+        "portrait_sha256": "75b7a33f44af04b99d32f440126fb99b494a5cace3fa67168ab9b63d66daae0f",
+        "banner_source": "examples/kayla-np-digital/source/banner.jpg",
+        "banner_sha256": "b8bd3b8812b4015b98d49f921efc8094c369019cf47c17088bc92ac66d2f9229",
+        "original_banner_available": true,
+        "banner_note": "Saved original public-profile banner."
+      },
+      "before": {
+        "desktop": {
+          "file": "kayla-np-digital/before/review-desktop.png",
+          "bytes": 326538,
+          "sha256": "820e48096d6406d9cfebe33e40c956923e83887a9b64ddfff727aa4c96639ec0",
+          "width": 792,
+          "height": 476
+        },
+        "mobile": {
+          "file": "kayla-np-digital/before/review-mobile.png",
+          "bytes": 104085,
+          "sha256": "1b9a603b1710fa5bb398f402a0b55b28f856be3c824169b2afa94d49eaf296ce",
+          "width": 390,
+          "height": 363
+        }
+      },
+      "packages": [
+        {
+          "style": "clarekitching",
+          "style_label": "Clare · Editorial clarity",
+          "headline": "Helping brands grow through social media | Senior Social Media Manager at NP Digital | 200+ social media accounts managed | San Diego Padres fan engagement",
+          "media_label": "AI-edited portraits and, where present, AI-edited banner photographs. Banner composition and typography are rendered from HTML.",
+          "files": [
+            {
+              "file": "kayla-np-digital/results/clarekitching/banner.png",
+              "bytes": 488386,
+              "sha256": "eba7503538ec24ae8cfc5c1a7c6b414cc5f326b2a8c01952ae94ec6d1df906b4",
+              "width": 3168,
+              "height": 792
+            },
+            {
+              "file": "kayla-np-digital/results/clarekitching/portrait.png",
+              "bytes": 907567,
+              "sha256": "b325c792168d66a0cff1cf3b5da777dd180fca1bac16b7b4a490186b1d3e8cf5",
+              "width": 800,
+              "height": 800
+            },
+            {
+              "file": "kayla-np-digital/results/clarekitching/preview.png",
+              "bytes": 105880,
+              "sha256": "98591f3e082d5f88af78701e47543dd2bbdd5dce18f13d4fba6b3e4c398051fd",
+              "width": 848,
+              "height": 618
+            },
+            {
+              "file": "kayla-np-digital/results/clarekitching/headline.txt",
+              "bytes": 156,
+              "sha256": "67a73fe45e119d874489ea919bbaf2ba786a297ef9cbf8842c031a4c040792db"
+            },
+            {
+              "file": "kayla-np-digital/results/clarekitching/review-desktop.png",
+              "bytes": 96181,
+              "sha256": "600059f84986be0c6b28d9591feee6ae9016cc1ac8c01dbd6e538a7c1c3babb6",
+              "width": 792,
+              "height": 476
+            },
+            {
+              "file": "kayla-np-digital/results/clarekitching/review-mobile.png",
+              "bytes": 56177,
+              "sha256": "39201ebc4bf905383d8abb7d92e6eb0ec7b70e6a730c141b6d7a17bcd31cc573",
+              "width": 390,
+              "height": 383
+            }
+          ]
+        },
+        {
+          "style": "diandraescobar",
+          "style_label": "Diandra · Evidence in focus",
+          "headline": "Senior Social Media Manager at NP Digital | Social media strategy and content that help brands grow | 200+ social accounts managed | A decade in digital marketing",
+          "media_label": "AI-edited portraits and, where present, AI-edited banner photographs. Banner composition and typography are rendered from HTML.",
+          "files": [
+            {
+              "file": "kayla-np-digital/results/diandraescobar/banner.png",
+              "bytes": 1336578,
+              "sha256": "0ad1899df218ec541d9f3b2dcfdefa89ea1d145c888ce77dde52e2e74d989e84",
+              "width": 3168,
+              "height": 792
+            },
+            {
+              "file": "kayla-np-digital/results/diandraescobar/portrait.png",
+              "bytes": 928692,
+              "sha256": "d3c2f40ac758ef84ba722d99b6d49b031e0129f865915206a6d82a16f5884e6f",
+              "width": 800,
+              "height": 800
+            },
+            {
+              "file": "kayla-np-digital/results/diandraescobar/preview.png",
+              "bytes": 159216,
+              "sha256": "3698153f6fbf5ff86e49c2495f3c3f709286be6161c2dd315c9ae5c32266cdf4",
+              "width": 848,
+              "height": 618
+            },
+            {
+              "file": "kayla-np-digital/results/diandraescobar/headline.txt",
+              "bytes": 163,
+              "sha256": "9d3254353877bb552a064528fbdd63434e08e7b7457b58eba627582f7fe30c05"
+            },
+            {
+              "file": "kayla-np-digital/results/diandraescobar/review-desktop.png",
+              "bytes": 148676,
+              "sha256": "91f76ebae19dafacdfe19f033f3ca5d43aa4264b42937046130ba772a3045205",
+              "width": 792,
+              "height": 476
+            },
+            {
+              "file": "kayla-np-digital/results/diandraescobar/review-mobile.png",
+              "bytes": 67973,
+              "sha256": "bef71603e964d64d530d30327333af84e9a767a56df8174a9de7cf23727a184c",
+              "width": 390,
+              "height": 383
+            }
+          ]
+        },
+        {
+          "style": "laraacostar",
+          "style_label": "Lara · Executive presence",
+          "headline": "I help brands grow through social media | Senior Social Media Manager at NP Digital | 200+ social accounts managed | 10 years in digital marketing",
+          "media_label": "AI-edited portraits and, where present, AI-edited banner photographs. Banner composition and typography are rendered from HTML.",
+          "files": [
+            {
+              "file": "kayla-np-digital/results/laraacostar/banner.png",
+              "bytes": 1450540,
+              "sha256": "b64021374e19d23d1aeb79300b6f597f1753d9aea8f7cbc0dcca8cae1e8f6ac9",
+              "width": 3168,
+              "height": 792
+            },
+            {
+              "file": "kayla-np-digital/results/laraacostar/portrait.png",
+              "bytes": 942232,
+              "sha256": "13aca76d8dd7526739247ee0b9c2490c9125ab077f558cc6b0bc600e429ce954",
+              "width": 800,
+              "height": 800
+            },
+            {
+              "file": "kayla-np-digital/results/laraacostar/preview.png",
+              "bytes": 150345,
+              "sha256": "a4e31cae26b3a5626d1e60f35d471c2ee7b3cfbfaec646c42262e4b7564d940d",
+              "width": 848,
+              "height": 618
+            },
+            {
+              "file": "kayla-np-digital/results/laraacostar/headline.txt",
+              "bytes": 147,
+              "sha256": "005572ce3e44c529272dc66f7ab4b0f6ba82e75c9e86b63345e221afd5405b9c"
+            },
+            {
+              "file": "kayla-np-digital/results/laraacostar/review-desktop.png",
+              "bytes": 140171,
+              "sha256": "a347450572e1081a926b050ff302576e1c84c266fbaf77725416d76a60267ff8",
+              "width": 792,
+              "height": 476
+            },
+            {
+              "file": "kayla-np-digital/results/laraacostar/review-mobile.png",
+              "bytes": 64331,
+              "sha256": "c7e9a206c015eecdd098e7d59dacd43a008f82a96bdcb1ce63c213b84669f260",
+              "width": 390,
+              "height": 363
+            }
+          ]
+        },
+        {
+          "style": "mattgray1",
+          "style_label": "Matt · Room to think",
+          "headline": "Senior Social Media Manager at NP Digital | Helping brands grow their audience and engagement | 200+ social media accounts managed",
+          "media_label": "AI-edited portraits and, where present, AI-edited banner photographs. Banner composition and typography are rendered from HTML.",
+          "files": [
+            {
+              "file": "kayla-np-digital/results/mattgray1/banner.png",
+              "bytes": 2753338,
+              "sha256": "91ba139d92156c71384992caa567fa59b73fb563964ee31776f12d4dcea89895",
+              "width": 3168,
+              "height": 792
+            },
+            {
+              "file": "kayla-np-digital/results/mattgray1/portrait.png",
+              "bytes": 978668,
+              "sha256": "34114fc47ccf1aad94583318da8321894ea59ca9fff9689e513124bc1329e522",
+              "width": 800,
+              "height": 800
+            },
+            {
+              "file": "kayla-np-digital/results/mattgray1/preview.png",
+              "bytes": 278206,
+              "sha256": "bd1157b21e21f8e600d52333771d369a922f0463d3f67cab1ed31ec8fffae4d6",
+              "width": 848,
+              "height": 618
+            },
+            {
+              "file": "kayla-np-digital/results/mattgray1/headline.txt",
+              "bytes": 131,
+              "sha256": "d465aed7452a5485f25a8ad0f46baf9983240290ba3d6bddcabc1570a7714ace"
+            },
+            {
+              "file": "kayla-np-digital/results/mattgray1/review-desktop.png",
+              "bytes": 266262,
+              "sha256": "429538164aea67b7480d063abab348f0fda4a3fcae5748be1aae2f77a603a1ca",
+              "width": 792,
+              "height": 476
+            },
+            {
+              "file": "kayla-np-digital/results/mattgray1/review-mobile.png",
+              "bytes": 87856,
+              "sha256": "9a47e850a752dd7a7ee191e0346d153ddc14cab5cc8803758cdd91dd6bc95b8d",
+              "width": 390,
+              "height": 363
+            }
+          ]
+        },
+        {
+          "style": "adrian-kul",
+          "style_label": "Adrian · Quiet authority",
+          "headline": "Senior Social Media Manager at NP Digital | Social media strategy and content for brand growth | 200+ social accounts managed | A decade in digital marketing",
+          "media_label": "AI-edited portraits and, where present, AI-edited banner photographs. Banner composition and typography are rendered from HTML.",
+          "files": [
+            {
+              "file": "kayla-np-digital/results/adrian-kul/banner.png",
+              "bytes": 73995,
+              "sha256": "0f0599a2dc2f41e5e4484d2a9d89c320c1db942a6c414d0634c54e2faafd1e5a",
+              "width": 3168,
+              "height": 792
+            },
+            {
+              "file": "kayla-np-digital/results/adrian-kul/portrait.png",
+              "bytes": 920437,
+              "sha256": "b24da181324849a82d41f69cca0e3189e0b325e8cf9ada0700a75440c68819be",
+              "width": 800,
+              "height": 800
+            },
+            {
+              "file": "kayla-np-digital/results/adrian-kul/preview.png",
+              "bytes": 78546,
+              "sha256": "c94c8786c2baf0c9ad36c129108dfcebe5c4a69becad8d6820cfa7052c70efc8",
+              "width": 848,
+              "height": 618
+            },
+            {
+              "file": "kayla-np-digital/results/adrian-kul/headline.txt",
+              "bytes": 158,
+              "sha256": "8c238885b34f4cf4598e16b29f69c5f999f06f569ac4bc71115dcc6569989ac5"
+            },
+            {
+              "file": "kayla-np-digital/results/adrian-kul/review-desktop.png",
+              "bytes": 68949,
+              "sha256": "6b49a259eff503b26541963c2aa873db0e7cda06dd61ca42b7e0dfdb7e6c09b4",
+              "width": 792,
+              "height": 476
+            },
+            {
+              "file": "kayla-np-digital/results/adrian-kul/review-mobile.png",
+              "bytes": 43176,
+              "sha256": "22c98327e7c8f7a81784b807b0b9111f56a8d166a8d94f4aee536e32a46d2fb2",
+              "width": 390,
+              "height": 383
+            }
+          ]
+        },
+        {
+          "style": "donnellychris",
+          "style_label": "Chris · Clear momentum",
+          "headline": "Senior Social Media Manager at NP Digital | Helping brands grow through social media | 200+ social media accounts managed | Content strategy and engagement",
+          "media_label": "AI-edited portraits and, where present, AI-edited banner photographs. Banner composition and typography are rendered from HTML.",
+          "files": [
+            {
+              "file": "kayla-np-digital/results/donnellychris/banner.png",
+              "bytes": 642540,
+              "sha256": "356c5513ef9b0a5078861bf80700bc9cd88c33176a183c5f9bc717617f5b8e74",
+              "width": 3168,
+              "height": 792
+            },
+            {
+              "file": "kayla-np-digital/results/donnellychris/portrait.png",
+              "bytes": 938473,
+              "sha256": "a8de66de46c92ab62345a5dde82318e20b3fe125b43abf96a3675bb2a0b9adee",
+              "width": 800,
+              "height": 800
+            },
+            {
+              "file": "kayla-np-digital/results/donnellychris/preview.png",
+              "bytes": 190016,
+              "sha256": "fe5e9774932abf91c13e7dddeb9a12a2ac14f722ab6ee19e8264b88eeada902d",
+              "width": 848,
+              "height": 618
+            },
+            {
+              "file": "kayla-np-digital/results/donnellychris/headline.txt",
+              "bytes": 156,
+              "sha256": "2c3bee11414a54a8b05268432d9c80777ef381c0f9a312a35295378a898fab4f"
+            },
+            {
+              "file": "kayla-np-digital/results/donnellychris/review-desktop.png",
+              "bytes": 179304,
+              "sha256": "882ae9632b8f9879f280e5a89d83d83ef86f062344d6835d92cf52edbb91799f",
+              "width": 792,
+              "height": 476
+            },
+            {
+              "file": "kayla-np-digital/results/donnellychris/review-mobile.png",
+              "bytes": 75229,
+              "sha256": "581747c18812d9a9c59469a89ab8f23d62b373854c23679df68d13bef664664d",
+              "width": 390,
+              "height": 383
+            }
+          ]
+        },
+        {
+          "style": "rob-hoffman-ceo",
+          "style_label": "Rob · Built for what’s next",
+          "headline": "Social media that helps brands grow | Senior Social Media Manager at NP Digital | 200+ social accounts managed | San Diego Padres fan engagement",
+          "media_label": "AI-edited portraits and, where present, AI-edited banner photographs. Banner composition and typography are rendered from HTML.",
+          "files": [
+            {
+              "file": "kayla-np-digital/results/rob-hoffman-ceo/banner.png",
+              "bytes": 819656,
+              "sha256": "7fccc2af3c77cfac2228c381d546b37c4914757136b9973fc223232b6e40068d",
+              "width": 3168,
+              "height": 792
+            },
+            {
+              "file": "kayla-np-digital/results/rob-hoffman-ceo/portrait.png",
+              "bytes": 936407,
+              "sha256": "760f4694b8046732df46918f687a83c5b1ad5776d97433a1b997b1e603965f1e",
+              "width": 800,
+              "height": 800
+            },
+            {
+              "file": "kayla-np-digital/results/rob-hoffman-ceo/preview.png",
+              "bytes": 134050,
+              "sha256": "2066572c6071c0d46ced5e063543b2558bfdc1bc43fb64dbe916e2d4dfe8dfe8",
+              "width": 848,
+              "height": 618
+            },
+            {
+              "file": "kayla-np-digital/results/rob-hoffman-ceo/headline.txt",
+              "bytes": 145,
+              "sha256": "fc22f2c1dd90a67ca3631be539ac10db9a20db2f9f5080b2c2a2166aa288ff72"
+            },
+            {
+              "file": "kayla-np-digital/results/rob-hoffman-ceo/review-desktop.png",
+              "bytes": 123590,
+              "sha256": "51f82db6bbd9c89cba742b676b008b25529bf8610ebc312f1b63e106bda8d08b",
+              "width": 792,
+              "height": 476
+            },
+            {
+              "file": "kayla-np-digital/results/rob-hoffman-ceo/review-mobile.png",
+              "bytes": 61293,
+              "sha256": "ad15d716d83898a9d85d72015b7506e2950143dc7ccdb51e03533c8392f6e0c7",
+              "width": 390,
+              "height": 363
+            }
+          ]
+        },
+        {
+          "style": "jakezward",
+          "style_label": "Jake · Modern confidence",
+          "headline": "Helping brands grow through social media | Senior Social Media Manager at NP Digital | 200+ social accounts managed | Content, audience growth and brand awareness",
+          "media_label": "AI-edited portraits and, where present, AI-edited banner photographs. Banner composition and typography are rendered from HTML.",
+          "files": [
+            {
+              "file": "kayla-np-digital/results/jakezward/banner.png",
+              "bytes": 955304,
+              "sha256": "80b6cb3c31097789ffb1a08b3b3138377106b4643180500d83f02b994339bb40",
+              "width": 3168,
+              "height": 792
+            },
+            {
+              "file": "kayla-np-digital/results/jakezward/portrait.png",
+              "bytes": 936407,
+              "sha256": "760f4694b8046732df46918f687a83c5b1ad5776d97433a1b997b1e603965f1e",
+              "width": 800,
+              "height": 800
+            },
+            {
+              "file": "kayla-np-digital/results/jakezward/preview.png",
+              "bytes": 148386,
+              "sha256": "070d152c233d3fe5986e6b0bdfdaaf2643a002a00b3512f79179854e077d813e",
+              "width": 848,
+              "height": 618
+            },
+            {
+              "file": "kayla-np-digital/results/jakezward/headline.txt",
+              "bytes": 163,
+              "sha256": "709e2c08b5898d854422d537a924bc3763195437854210db0f946ad7aaeb1212"
+            },
+            {
+              "file": "kayla-np-digital/results/jakezward/review-desktop.png",
+              "bytes": 137799,
+              "sha256": "bcbe12844ae8cb5b15c01a0be5adf0a0f2194a3c3c21fcf6c70526b0d17ae328",
+              "width": 792,
+              "height": 476
+            },
+            {
+              "file": "kayla-np-digital/results/jakezward/review-mobile.png",
+              "bytes": 65962,
+              "sha256": "f18fe0dd61091c915f446a5b6f7b32d9cc53dc12f275ca9f2177b91767061155",
+              "width": 390,
+              "height": 383
+            }
+          ]
+        },
+        {
+          "style": "charlie-hills",
+          "style_label": "Charlie · Practical expertise",
+          "headline": "Social media that helps brands grow | Senior Social Media Manager at NP Digital | 200+ social accounts managed | Current and past roles across marketing and fan engagement",
+          "media_label": "AI-edited portraits and, where present, AI-edited banner photographs. Banner composition and typography are rendered from HTML.",
+          "files": [
+            {
+              "file": "kayla-np-digital/results/charlie-hills/banner.png",
+              "bytes": 150576,
+              "sha256": "9c924abf5c44559ec3bf7808808fcbd6605faaa0462b6a3aea893feac391b64a",
+              "width": 3168,
+              "height": 792
+            },
+            {
+              "file": "kayla-np-digital/results/charlie-hills/portrait.png",
+              "bytes": 976452,
+              "sha256": "00279e4399aaadbb82b40815ba629aa72b76cd9954cc863b3fee34cf50da9fb3",
+              "width": 800,
+              "height": 800
+            },
+            {
+              "file": "kayla-np-digital/results/charlie-hills/preview.png",
+              "bytes": 104395,
+              "sha256": "4094f4d60f69150df54b4443ca3604af75f1260f20d5bba1d5a636b53a3dbec2",
+              "width": 848,
+              "height": 618
+            },
+            {
+              "file": "kayla-np-digital/results/charlie-hills/headline.txt",
+              "bytes": 172,
+              "sha256": "c16bbb1d8a80c326493e780427733dcd8b3b7d1ae032f49c27dcf4081b6651da"
+            },
+            {
+              "file": "kayla-np-digital/results/charlie-hills/review-desktop.png",
+              "bytes": 94373,
+              "sha256": "1462d18c12582f9271e2e087d106e1ffbd6b7fbb0aca54a85d0ed7c141ca03f0",
+              "width": 792,
+              "height": 476
+            },
+            {
+              "file": "kayla-np-digital/results/charlie-hills/review-mobile.png",
+              "bytes": 56846,
+              "sha256": "7cfee4cfb8e33de475a03697c301f00be9eebc7a46978fd81346cc2c12bc354f",
+              "width": 390,
+              "height": 383
+            }
+          ]
+        },
+        {
+          "style": "liamkarlsson",
+          "style_label": "Liam · Systems that scale",
+          "headline": "Senior Social Media Manager at NP Digital | Social media that builds brand awareness and audience engagement | 200+ social accounts managed",
+          "media_label": "AI-edited portraits and, where present, AI-edited banner photographs. Banner composition and typography are rendered from HTML.",
+          "files": [
+            {
+              "file": "kayla-np-digital/results/liamkarlsson/banner.png",
+              "bytes": 1802260,
+              "sha256": "3952b3fb82888fa9b5fe55eec0af807d4e3495b412e6aa6a09cbe9b998ae44d6",
+              "width": 3168,
+              "height": 792
+            },
+            {
+              "file": "kayla-np-digital/results/liamkarlsson/portrait.png",
+              "bytes": 935499,
+              "sha256": "377ed7f6b6c02b6f2782dc2632c2a4e726f6a51714a7fb0e75aa1c1823ed74b9",
+              "width": 800,
+              "height": 800
+            },
+            {
+              "file": "kayla-np-digital/results/liamkarlsson/preview.png",
+              "bytes": 277538,
+              "sha256": "3ba76dad82af0525daf8ca2814faaba4ec1650b937d917cac226e3b3717f0cf1",
+              "width": 848,
+              "height": 618
+            },
+            {
+              "file": "kayla-np-digital/results/liamkarlsson/headline.txt",
+              "bytes": 140,
+              "sha256": "a501d1f7caeb10cd384787414c19179e79569eb2bb8c448d62f10d855ba1b59c"
+            },
+            {
+              "file": "kayla-np-digital/results/liamkarlsson/review-desktop.png",
+              "bytes": 266826,
+              "sha256": "91ac62f3b35031782903470dcadf347454fa7f29f2fe85d172f1518f3cb4d628",
+              "width": 792,
+              "height": 476
+            },
+            {
+              "file": "kayla-np-digital/results/liamkarlsson/review-mobile.png",
+              "bytes": 88021,
+              "sha256": "6339fffea660587ea84752b7570a1766580528e3c93c3ee8b32204c905be94d4",
+              "width": 390,
+              "height": 363
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "emily",
+      "folder": "emily-padres",
+      "name": "Emily Wittig",
+      "company_brand": "San Diego Padres",
+      "before_caption": "Original saved headline and portrait. No original banner was available in the saved profile source; neutral cover shown.",
+      "source_provenance": {
+        "profile_url": "https://www.linkedin.com/in/emily-wittig-01743856/",
+        "original_headline": "Vice President, Marketing at San Diego Padres",
+        "portrait_source": "examples/emily-padres/source/portrait.jpg",
+        "portrait_sha256": "efebae0dcac06867b4c42cada6994a0eeb83ceed522abb4ab4631cbdcefa92a9",
+        "banner_source": null,
+        "banner_sha256": null,
+        "original_banner_available": false,
+        "banner_note": "Saved profile banner_url is null and no local original banner exists; a flat neutral cover represents unavailable source media, not an invented original banner."
+      },
+      "before": {
+        "desktop": {
+          "file": "emily-padres/before/review-desktop.png",
+          "bytes": 47056,
+          "sha256": "805fb1caf051a107449699b57a4ed25f220e4245ef51f8e6bf6c9a8332f6d9e8",
+          "width": 792,
+          "height": 454
+        },
+        "mobile": {
+          "file": "emily-padres/before/review-mobile.png",
+          "bytes": 29961,
+          "sha256": "d031109f7d1f8a63e811f1bd00bae3084c96cea45e5a342082738daccdba5a8b",
+          "width": 390,
+          "height": 322
+        }
+      },
+      "packages": [
+        {
+          "style": "clarekitching",
+          "style_label": "Clare · Editorial clarity",
+          "headline": "VP, Marketing at San Diego Padres | Bringing fans to games and concerts | Helped contribute to franchise attendance records | Former Stanford athletics marketing leader",
+          "media_label": "AI-edited portraits and, where present, AI-edited banner photographs. Banner composition and typography are rendered from HTML.",
+          "files": [
+            {
+              "file": "emily-padres/results/clarekitching/banner.png",
+              "bytes": 614495,
+              "sha256": "714b259325c5d1b3afd3830f89386f53f70f9065e629c8d3c5aababdb0f65ce7",
+              "width": 3168,
+              "height": 792
+            },
+            {
+              "file": "emily-padres/results/clarekitching/portrait.png",
+              "bytes": 767134,
+              "sha256": "4b7ca78a4f0f85c32f8e391765857d91d719e0b9b1746978838db06e2623ae45",
+              "width": 800,
+              "height": 800
+            },
+            {
+              "file": "emily-padres/results/clarekitching/preview.png",
+              "bytes": 107769,
+              "sha256": "518971fc933fb989de716b95d5f4dc99065d3c1ec7231fdba14940127882c044",
+              "width": 848,
+              "height": 618
+            },
+            {
+              "file": "emily-padres/results/clarekitching/headline.txt",
+              "bytes": 169,
+              "sha256": "8528b62f1dee744131820aced44fba52901945e41bb43553f5d418ca92110b86"
+            },
+            {
+              "file": "emily-padres/results/clarekitching/review-desktop.png",
+              "bytes": 98166,
+              "sha256": "4e013bf75788eb52662def40c252d0f3b3aa2f0ccbe51c68f21537370b8b2ed7",
+              "width": 792,
+              "height": 476
+            },
+            {
+              "file": "emily-padres/results/clarekitching/review-mobile.png",
+              "bytes": 57275,
+              "sha256": "ba4288e6818f9daf496387f4c7c76319ea9ba70883c5a16e0861f58d52cad3fa",
+              "width": 390,
+              "height": 383
+            }
+          ]
+        },
+        {
+          "style": "diandraescobar",
+          "style_label": "Diandra · Evidence in focus",
+          "headline": "VP, Marketing at San Diego Padres | Advertising, social media & fan giveaways | Helped contribute to franchise attendance records | Former Stanford athletics marketing leader",
+          "media_label": "AI-edited portraits and, where present, AI-edited banner photographs. Banner composition and typography are rendered from HTML.",
+          "files": [
+            {
+              "file": "emily-padres/results/diandraescobar/banner.png",
+              "bytes": 1205925,
+              "sha256": "4700244502b0054256b49c618d45f472c25b55d2a8b6456ce49fcb3978ca604d",
+              "width": 3168,
+              "height": 792
+            },
+            {
+              "file": "emily-padres/results/diandraescobar/portrait.png",
+              "bytes": 849000,
+              "sha256": "285c02e58d733e76e10250d6a25a4bf6c68c1fc685ea920f80aab27467751446",
+              "width": 800,
+              "height": 800
+            },
+            {
+              "file": "emily-padres/results/diandraescobar/preview.png",
+              "bytes": 155441,
+              "sha256": "af7505c73b9c56ecf68cf85592bc0184508e489471561c73f48b6f4b24429b72",
+              "width": 848,
+              "height": 618
+            },
+            {
+              "file": "emily-padres/results/diandraescobar/headline.txt",
+              "bytes": 175,
+              "sha256": "14d1863f15ce227bcad986abb2b61091e2c1d432ceb53600738cb0898e1d685d"
+            },
+            {
+              "file": "emily-padres/results/diandraescobar/review-desktop.png",
+              "bytes": 144846,
+              "sha256": "b025e70e8363f11b951d88d25b2ab5d79f3812f8dc355d9f1caff8d76193d47a",
+              "width": 792,
+              "height": 476
+            },
+            {
+              "file": "emily-padres/results/diandraescobar/review-mobile.png",
+              "bytes": 67425,
+              "sha256": "6f5dd25eb071cf0bc876f2ed0dedf53e6f2a7e46253312ec0e42d2e342a4bfa8",
+              "width": 390,
+              "height": 383
+            }
+          ]
+        },
+        {
+          "style": "laraacostar",
+          "style_label": "Lara · Executive presence",
+          "headline": "VP, Marketing at San Diego Padres | Bringing fans closer to games and concerts | Helped contribute to franchise attendance records | Former Stanford athletics marketing leader",
+          "media_label": "AI-edited portraits and, where present, AI-edited banner photographs. Banner composition and typography are rendered from HTML.",
+          "files": [
+            {
+              "file": "emily-padres/results/laraacostar/banner.png",
+              "bytes": 1461576,
+              "sha256": "15d53706075fcdc8d24348165ada38accd5ff743e1f367da7e83aa72472c94d7",
+              "width": 3168,
+              "height": 792
+            },
+            {
+              "file": "emily-padres/results/laraacostar/portrait.png",
+              "bytes": 810749,
+              "sha256": "ab86aec94443a7c191cd43b81be281d9177de831fe55e5c6deb3efc39030f439",
+              "width": 800,
+              "height": 800
+            },
+            {
+              "file": "emily-padres/results/laraacostar/preview.png",
+              "bytes": 154244,
+              "sha256": "81d7113482118a87b969cfcb1ab2c2bff6d7dc6f5423bbad590d363fc4942493",
+              "width": 848,
+              "height": 618
+            },
+            {
+              "file": "emily-padres/results/laraacostar/headline.txt",
+              "bytes": 176,
+              "sha256": "ab248753fd45189678a579daed7effbabcc1b549a281071ab1dbebcf89ef7eee"
+            },
+            {
+              "file": "emily-padres/results/laraacostar/review-desktop.png",
+              "bytes": 143914,
+              "sha256": "d081451123cf5fc4603377dee58ffee068ddfaadacbb9c4b4b8ef94450449ebd",
+              "width": 792,
+              "height": 476
+            },
+            {
+              "file": "emily-padres/results/laraacostar/review-mobile.png",
+              "bytes": 65265,
+              "sha256": "8e5c6a40e5771974c8f51a702bac6c669792a858472074eb735664e32cc1d376",
+              "width": 390,
+              "height": 383
+            }
+          ]
+        },
+        {
+          "style": "mattgray1",
+          "style_label": "Matt · Room to think",
+          "headline": "VP, Marketing at San Diego Padres | Sports marketing for games, concerts and fan experiences | Helped contribute to franchise attendance records | Former Stanford athletics marketing leader",
+          "media_label": "AI-edited portraits and, where present, AI-edited banner photographs. Banner composition and typography are rendered from HTML.",
+          "files": [
+            {
+              "file": "emily-padres/results/mattgray1/banner.png",
+              "bytes": 2517429,
+              "sha256": "86bd12d6d8468fa968acd372c42d37df776975c313a35532dd75d986d88f1ff2",
+              "width": 3168,
+              "height": 792
+            },
+            {
+              "file": "emily-padres/results/mattgray1/portrait.png",
+              "bytes": 907557,
+              "sha256": "125f888d4f698dd56c3caf7964b6f7ed7e79604d07f095eb76437bcd2a61738c",
+              "width": 800,
+              "height": 800
+            },
+            {
+              "file": "emily-padres/results/mattgray1/preview.png",
+              "bytes": 264212,
+              "sha256": "4973ee066569063d7105164d56e8e5b72d32e77a89eaca9a98474a4845533a65",
+              "width": 848,
+              "height": 618
+            },
+            {
+              "file": "emily-padres/results/mattgray1/headline.txt",
+              "bytes": 190,
+              "sha256": "93e1a63d66b5fbc6d39c95cc3346f5830896834c3dfb8c040bc615552b9b81a2"
+            },
+            {
+              "file": "emily-padres/results/mattgray1/review-desktop.png",
+              "bytes": 252801,
+              "sha256": "c6a6af8dd24afff91930d239f149f2c1ad2956995b19739b8b021e9e838f809b",
+              "width": 792,
+              "height": 476
+            },
+            {
+              "file": "emily-padres/results/mattgray1/review-mobile.png",
+              "bytes": 85953,
+              "sha256": "679301bfd518f02b7ec08f48a9aee482c18fe937791c9acdb14a5e138f7f61c4",
+              "width": 390,
+              "height": 383
+            }
+          ]
+        },
+        {
+          "style": "adrian-kul",
+          "style_label": "Adrian · Quiet authority",
+          "headline": "VP, Marketing at San Diego Padres | Bringing fans to games and concerts | Helped contribute to franchise attendance records | Former Stanford athletics marketing leader",
+          "media_label": "AI-edited portraits and, where present, AI-edited banner photographs. Banner composition and typography are rendered from HTML.",
+          "files": [
+            {
+              "file": "emily-padres/results/adrian-kul/banner.png",
+              "bytes": 91492,
+              "sha256": "f7479b4dec4ab5d6215ff4de2e80e476125fe50349015458db43012ce0204edb",
+              "width": 3168,
+              "height": 792
+            },
+            {
+              "file": "emily-padres/results/adrian-kul/portrait.png",
+              "bytes": 850971,
+              "sha256": "cbb6e3d3e9cdccee5a5011221bab4d6bb100071ca5e7014f1ff2168c00df2973",
+              "width": 800,
+              "height": 800
+            },
+            {
+              "file": "emily-padres/results/adrian-kul/preview.png",
+              "bytes": 80710,
+              "sha256": "ebd8076932682414c8f87a0aff27f745db43ecf0910530e77cd8b8dc01274956",
+              "width": 848,
+              "height": 618
+            },
+            {
+              "file": "emily-padres/results/adrian-kul/headline.txt",
+              "bytes": 169,
+              "sha256": "8528b62f1dee744131820aced44fba52901945e41bb43553f5d418ca92110b86"
+            },
+            {
+              "file": "emily-padres/results/adrian-kul/review-desktop.png",
+              "bytes": 70678,
+              "sha256": "9dcd427af56edcfec56a00f1157de136e50a439bb55982371a707a66571dad8c",
+              "width": 792,
+              "height": 476
+            },
+            {
+              "file": "emily-padres/results/adrian-kul/review-mobile.png",
+              "bytes": 44549,
+              "sha256": "6935282b45d59821645dfa95a8b52f85ef8e758e2c433400143c196e2087a16a",
+              "width": 390,
+              "height": 383
+            }
+          ]
+        },
+        {
+          "style": "donnellychris",
+          "style_label": "Chris · Clear momentum",
+          "headline": "VP, Marketing at San Diego Padres | Games, concerts & fan experiences | 2024 Pacific Southwest Emmy recipient — Padres Giveaway Compilation team",
+          "media_label": "AI-edited portraits and, where present, AI-edited banner photographs. Banner composition and typography are rendered from HTML.",
+          "files": [
+            {
+              "file": "emily-padres/results/donnellychris/banner.png",
+              "bytes": 707383,
+              "sha256": "0e46540cdf0b7803d9ece8ff1ee2f2e6c68bed42937900a9f2bb71cda03aeab3",
+              "width": 3168,
+              "height": 792
+            },
+            {
+              "file": "emily-padres/results/donnellychris/portrait.png",
+              "bytes": 794667,
+              "sha256": "ceececcf1b5d4862b94497ca7af2f2f1659385a8adc3a0af15a3d8b1f58c8793",
+              "width": 800,
+              "height": 800
+            },
+            {
+              "file": "emily-padres/results/donnellychris/preview.png",
+              "bytes": 191911,
+              "sha256": "d2312648297a14704097c230017f0c489899bb4b0a0d7558222f8667340f569d",
+              "width": 848,
+              "height": 618
+            },
+            {
+              "file": "emily-padres/results/donnellychris/headline.txt",
+              "bytes": 147,
+              "sha256": "698cda015bd9f52d3d06a9e495e689f9b3ad41c262edc3678d8f998fb4d607ec"
+            },
+            {
+              "file": "emily-padres/results/donnellychris/review-desktop.png",
+              "bytes": 181129,
+              "sha256": "74b74ab5f983003ecc0399eb3d0f9e13545341cdc9dd2d9550fafe7fb7b4dc75",
+              "width": 792,
+              "height": 476
+            },
+            {
+              "file": "emily-padres/results/donnellychris/review-mobile.png",
+              "bytes": 74593,
+              "sha256": "1ca1b83aefb634c3bbe3c54fd184ac780bb4db1d3f467b0c1256cfb3f6588bf1",
+              "width": 390,
+              "height": 383
+            }
+          ]
+        },
+        {
+          "style": "rob-hoffman-ceo",
+          "style_label": "Rob · Built for what’s next",
+          "headline": "VP, Marketing at San Diego Padres | Sports marketing that brings fans together | Named on the 2024 Pacific Southwest Emmy-winning Padres Giveaway Compilation team",
+          "media_label": "AI-edited portraits and, where present, AI-edited banner photographs. Banner composition and typography are rendered from HTML.",
+          "files": [
+            {
+              "file": "emily-padres/results/rob-hoffman-ceo/banner.png",
+              "bytes": 773844,
+              "sha256": "8df4a93f316107245d2c99eae08dee74cec4f31836f8f390381196a0a69202f7",
+              "width": 3168,
+              "height": 792
+            },
+            {
+              "file": "emily-padres/results/rob-hoffman-ceo/portrait.png",
+              "bytes": 838304,
+              "sha256": "1091753b9a56eaa07b55e9fddf3148376d143701b6b90a8520834bc1f693cf0d",
+              "width": 800,
+              "height": 800
+            },
+            {
+              "file": "emily-padres/results/rob-hoffman-ceo/preview.png",
+              "bytes": 134103,
+              "sha256": "3f50da1378961ea0d522fd3d487136a2d2022596a9888bb74e3e9f0bb7bc0286",
+              "width": 848,
+              "height": 618
+            },
+            {
+              "file": "emily-padres/results/rob-hoffman-ceo/headline.txt",
+              "bytes": 163,
+              "sha256": "9e01e3705fc51417b1ff7347d2de6a913dba1db2ed99dcf4de92809bab5317c7"
+            },
+            {
+              "file": "emily-padres/results/rob-hoffman-ceo/review-desktop.png",
+              "bytes": 124175,
+              "sha256": "c3a6bb8cdfcf477f99857ef5cb294a44da80ab5c616c4045334ad5a3daaaf0bd",
+              "width": 792,
+              "height": 476
+            },
+            {
+              "file": "emily-padres/results/rob-hoffman-ceo/review-mobile.png",
+              "bytes": 63460,
+              "sha256": "cf6d528b274dd10b12ffeb4bfc4af113f1ec3b791928add538473663a0f8bdf4",
+              "width": 390,
+              "height": 383
+            }
+          ]
+        },
+        {
+          "style": "jakezward",
+          "style_label": "Jake · Modern confidence",
+          "headline": "VP, Marketing at San Diego Padres | Bringing fans to games and concerts | Helped contribute to franchise attendance records | Previously led marketing and fan experience across 36 Stanford varsity sports",
+          "media_label": "AI-edited portraits and, where present, AI-edited banner photographs. Banner composition and typography are rendered from HTML.",
+          "files": [
+            {
+              "file": "emily-padres/results/jakezward/banner.png",
+              "bytes": 712205,
+              "sha256": "96ec989c53fd5742f2938c1233777bf8fcf30b35189b50398cebdfefe9b934ef",
+              "width": 3168,
+              "height": 792
+            },
+            {
+              "file": "emily-padres/results/jakezward/portrait.png",
+              "bytes": 838304,
+              "sha256": "1091753b9a56eaa07b55e9fddf3148376d143701b6b90a8520834bc1f693cf0d",
+              "width": 800,
+              "height": 800
+            },
+            {
+              "file": "emily-padres/results/jakezward/preview.png",
+              "bytes": 135594,
+              "sha256": "2bc6c6c18096a5451852f25c97798ed97bb11590500ea9044adaa40256848f7f",
+              "width": 848,
+              "height": 639
+            },
+            {
+              "file": "emily-padres/results/jakezward/headline.txt",
+              "bytes": 204,
+              "sha256": "e284151e388b2f03a6f7809dd95e3a1174aaf5aa3aa0e1be848535263b9a53c9"
+            },
+            {
+              "file": "emily-padres/results/jakezward/review-desktop.png",
+              "bytes": 125534,
+              "sha256": "9932b58389d9065a8ca7d0e3e312c32d3498f9faac270a0b6705dd859cd5a340",
+              "width": 792,
+              "height": 497
+            },
+            {
+              "file": "emily-padres/results/jakezward/review-mobile.png",
+              "bytes": 63220,
+              "sha256": "8e73d19cc60c866f6dc1d09f1ad1c708759a5b0774f422d606fdc923eac3b256",
+              "width": 390,
+              "height": 383
+            }
+          ]
+        },
+        {
+          "style": "charlie-hills",
+          "style_label": "Charlie · Practical expertise",
+          "headline": "VP, Marketing at San Diego Padres | Bringing fans closer to games and concerts | Previously led marketing and fan experience across 36 Stanford varsity sports",
+          "media_label": "AI-edited portraits and, where present, AI-edited banner photographs. Banner composition and typography are rendered from HTML.",
+          "files": [
+            {
+              "file": "emily-padres/results/charlie-hills/banner.png",
+              "bytes": 215325,
+              "sha256": "7e89dc1366072de9b0302366e356ed2101432b95a4d91a3112376f0a919b397a",
+              "width": 3168,
+              "height": 792
+            },
+            {
+              "file": "emily-padres/results/charlie-hills/portrait.png",
+              "bytes": 832624,
+              "sha256": "2707d7a539406f321630567790af300a77c3394932723c0ab37bbc08905cb628",
+              "width": 800,
+              "height": 800
+            },
+            {
+              "file": "emily-padres/results/charlie-hills/preview.png",
+              "bytes": 105662,
+              "sha256": "65564d07adcb8f87e58485017e139171a9667f87ed93987fb2956a44173921ee",
+              "width": 848,
+              "height": 618
+            },
+            {
+              "file": "emily-padres/results/charlie-hills/headline.txt",
+              "bytes": 159,
+              "sha256": "09f76ff62c8612f606fc0b7a042b27711fc6389985722f5279f90809ff6bfaf0"
+            },
+            {
+              "file": "emily-padres/results/charlie-hills/review-desktop.png",
+              "bytes": 95805,
+              "sha256": "61fd731e8346bcf88f6e3c93c4f21181e59288086980cfe5485245adfb5fe1d5",
+              "width": 792,
+              "height": 476
+            },
+            {
+              "file": "emily-padres/results/charlie-hills/review-mobile.png",
+              "bytes": 56186,
+              "sha256": "5997282768c5c169f9ca13bc6941bf6057a72b8dea165cd6797270788110dc98",
+              "width": 390,
+              "height": 383
+            }
+          ]
+        },
+        {
+          "style": "liamkarlsson",
+          "style_label": "Liam · Systems that scale",
+          "headline": "VP, Marketing at San Diego Padres | Sports marketing for games, concerts and fan experiences | Helped contribute to franchise attendance records | Former Stanford athletics marketing leader",
+          "media_label": "AI-edited portraits and, where present, AI-edited banner photographs. Banner composition and typography are rendered from HTML.",
+          "files": [
+            {
+              "file": "emily-padres/results/liamkarlsson/banner.png",
+              "bytes": 2253167,
+              "sha256": "81609a5ea4e09f21ed33fa49538ab2fc13a50e626fd17e17bc4cd92330c7d938",
+              "width": 3168,
+              "height": 792
+            },
+            {
+              "file": "emily-padres/results/liamkarlsson/portrait.png",
+              "bytes": 882013,
+              "sha256": "88987690697297ac141e4333c373fd9125fa3934abc44d5e76eb2e999bdaf913",
+              "width": 800,
+              "height": 800
+            },
+            {
+              "file": "emily-padres/results/liamkarlsson/preview.png",
+              "bytes": 331913,
+              "sha256": "a7ff032efe43f54e4ca5944aaffb58e90d11d0e4ffce4befe44b7699a0ec179e",
+              "width": 848,
+              "height": 618
+            },
+            {
+              "file": "emily-padres/results/liamkarlsson/headline.txt",
+              "bytes": 190,
+              "sha256": "93e1a63d66b5fbc6d39c95cc3346f5830896834c3dfb8c040bc615552b9b81a2"
+            },
+            {
+              "file": "emily-padres/results/liamkarlsson/review-desktop.png",
+              "bytes": 320588,
+              "sha256": "9691987feaf0025bbb140e7a0bc0cd6242643d68cc1352121af820679d6ab014",
+              "width": 792,
+              "height": 476
+            },
+            {
+              "file": "emily-padres/results/liamkarlsson/review-mobile.png",
+              "bytes": 95874,
+              "sha256": "4962b4caef00ec34957df67e88ed71a154fcef32ec7ccaa81c5a3e63929ba186",
+              "width": 390,
+              "height": 383
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "style_references": {
+    "clarekitching": {
+      "name": "Clare Kitching",
+      "url": "https://www.linkedin.com/in/clarekitching/",
+      "direction": "Editorial clarity"
+    },
+    "diandraescobar": {
+      "name": "Diandra Escobar",
+      "url": "https://www.linkedin.com/in/diandraescobar/",
+      "direction": "Evidence in focus"
+    },
+    "laraacostar": {
+      "name": "Lara Acosta",
+      "url": "https://www.linkedin.com/in/laraacostar/",
+      "direction": "Executive presence"
+    },
+    "mattgray1": {
+      "name": "Matt Gray",
+      "url": "https://www.linkedin.com/in/mattgray1/",
+      "direction": "Room to think"
+    },
+    "adrian-kul": {
+      "name": "Adrian Kuleszo",
+      "url": "https://www.linkedin.com/in/adrian-kul/",
+      "direction": "Quiet authority"
+    },
+    "donnellychris": {
+      "name": "Chris Donnelly",
+      "url": "https://www.linkedin.com/in/donnellychris/",
+      "direction": "Clear momentum"
+    },
+    "rob-hoffman-ceo": {
+      "name": "Rob Hoffman",
+      "url": "https://www.linkedin.com/in/rob-hoffman-ceo/",
+      "direction": "Built for what’s next"
+    },
+    "jakezward": {
+      "name": "Jake Ward",
+      "url": "https://www.linkedin.com/in/jakezward/",
+      "direction": "Modern confidence"
+    },
+    "charlie-hills": {
+      "name": "Charlie Hills 🦩",
+      "url": "https://www.linkedin.com/in/charlie-hills/",
+      "direction": "Practical expertise"
+    },
+    "liamkarlsson": {
+      "name": "Liam Karlsson",
+      "url": "https://www.linkedin.com/in/liamkarlsson/",
+      "direction": "Systems that scale"
+    }
+  }
+}

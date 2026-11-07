@@ -1,0 +1,162 @@
+{
+  "id": "jakezward",
+  "name": "Jake Ward",
+  "label": "Warm white search-orbit authority",
+  "source_url": "https://www.linkedin.com/in/jakezward/",
+  "source_dimensions": [
+    1400,
+    350
+  ],
+  "units": "source-raster px; normalized bounds are fractions; all geometry/font estimates",
+  "palette": {
+    "background": "#FAFAF8",
+    "text": "#101111",
+    "accent": "#FF4A28",
+    "muted": "#74777B",
+    "portrait_background": "#62635F"
+  },
+  "typography": {
+    "family": "Inter, Arial, sans-serif",
+    "family_verified": false,
+    "weight": 750,
+    "title_size_px": 52,
+    "title_line_height": 0.98,
+    "title_letter_spacing_px": -2
+  },
+  "layout": {
+    "text_x": 0.28,
+    "text_y": 0.24,
+    "text_width": 0.42,
+    "text_align": "left",
+    "reserved_left": 0.27,
+    "proof_y": 0.66,
+    "has_banner_portrait": true,
+    "portrait_x": 0.777
+  },
+  "effects": [
+    "soft coral glow behind right portrait",
+    "thin dotted orbital arcs",
+    "rounded gray outlined proof strip"
+  ],
+  "elements": [
+    {
+      "name": "Background",
+      "bounds_px": [
+        0,
+        0,
+        1400,
+        350
+      ],
+      "bounds_normalized": [
+        0.0,
+        0.0,
+        1.0,
+        1.0
+      ],
+      "observation": "Warm white field; a peach/coral radial glow is localized behind the right portrait."
+    },
+    {
+      "name": "Known wordmark",
+      "bounds_px": [
+        37,
+        35,
+        128,
+        31
+      ],
+      "bounds_normalized": [
+        0.0264,
+        0.1,
+        0.0914,
+        0.0886
+      ],
+      "observation": "Lowercase black “known” with an elevated coral-ring “o”."
+    },
+    {
+      "name": "Main statement",
+      "bounds_px": [
+        394,
+        88,
+        553,
+        102
+      ],
+      "bounds_normalized": [
+        0.2814,
+        0.2514,
+        0.395,
+        0.2914
+      ],
+      "observation": "“Be known everywhere” / “your customers search”; “everywhere” is coral italic."
+    },
+    {
+      "name": "Proof capsule",
+      "bounds_px": [
+        387,
+        231,
+        740,
+        62
+      ],
+      "bounds_normalized": [
+        0.2764,
+        0.66,
+        0.5286,
+        0.1771
+      ],
+      "observation": "“SEEN IN” followed by Forbes, TechCrunch, Inc., Business Insider, Y Combinator marks in gray."
+    },
+    {
+      "name": "Banner person",
+      "bounds_px": [
+        1090,
+        20,
+        282,
+        330
+      ],
+      "bounds_normalized": [
+        0.7786,
+        0.0571,
+        0.2014,
+        0.9429
+      ],
+      "observation": "Warm full-color seated/upper-body cutout, smiling, black crew-neck; overlaps right portion of the capsule."
+    },
+    {
+      "name": "Orbit system",
+      "bounds_px": [
+        956,
+        40,
+        444,
+        310
+      ],
+      "bounds_normalized": [
+        0.6829,
+        0.1143,
+        0.3171,
+        0.8857
+      ],
+      "observation": "Fine coral dotted curves with small white circular AI/search icon disks, clipped by right/bottom edges."
+    }
+  ],
+  "portrait": {
+    "source_dimensions": [
+      800,
+      800
+    ],
+    "identity_source": "target person only",
+    "background": "#62635F",
+    "guidance": "The 800×800 portrait is a tight head-and-shoulders crop with neutral textured gray background and black shirt. Hair begins y≈26 (3% margin); eyes y≈353 (44%); chin y≈662 (83%). The face is large, roughly x=191–616 (53% width), with shoulders only in the bottom quarter. Direct eye contact and an open smile make the technical offer personable. Soft frontal light keeps both eyes clear and leaves natural skin texture; background is slightly darker and warmer on the right. This is the closest crop among these five references, so recognition is strong at tiny avatar sizes. A strict circular crop can approach the hair/shoulder edges; keep a few percent more headroom in the new version."
+  },
+  "do_not_copy": [
+    "reference identity",
+    "reference-specific company marks",
+    "unverified endorsements",
+    "reference follower or client counts",
+    "awards without evidence",
+    "expired event dates"
+  ],
+  "quality_notes": [
+    "Validate circle crop and lower-left overlap",
+    "Assess mobile readability at realistic display scale",
+    "Font identification is approximate",
+    "Separate observed details from verified personal claims"
+  ]
+}
