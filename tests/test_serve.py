@@ -199,6 +199,23 @@ class LocalPreviewTests(unittest.TestCase):
         self.assertEqual(self.request(f'/download/{self.identifier}/uploads.zip')[0],409)
         self.assertEqual(self.request(f'/asset/{self.identifier}/portrait.png')[0],409)
 
+    def test_partial_or_invalid_qa_blocks_all_deliverables(self):
+        for content in ('{"acceptance":"render_in_progress"', '', '[]', 'null', '"passed"'):
+            with self.subTest(content=content):
+                (self.folder/'qa.json').write_text(content)
+                data=json.loads(self.request('/api/packages')[2])['packages'][0]
+                self.assertFalse(data['downloads_ready'])
+                self.assertFalse(data['source_available'])
+                for kind in ('uploads','sources'):
+                    self.assertEqual(self.request(f'/download/{self.identifier}/{kind}.zip')[0],409)
+                for name in ('banner.png','portrait.png','headline.txt'):
+                    self.assertEqual(self.request(f'/asset/{self.identifier}/{name}')[0],409)
+                self.assertEqual(self.request(f'/asset/{self.identifier}/preview.png')[0],200)
+        (self.folder/'qa.json').unlink()
+        data=json.loads(self.request('/api/packages')[2])['packages'][0]
+        self.assertTrue(data['downloads_ready'])
+        self.assertIn('Draft',data['status'])
+
     def test_user_text_is_data_not_executable_markup(self):
         (self.folder/'brief.json').write_text(json.dumps({'name':'</script><script>alert(1)</script>'}))
         body=json.loads(self.request('/api/packages')[2])['packages'][0]
@@ -210,6 +227,59 @@ class LocalPreviewTests(unittest.TestCase):
     def test_empty_directory_has_honest_waiting_state(self):
         for item in self.folder.iterdir():item.unlink()
         self.assertEqual(json.loads(self.request('/api/packages')[2])['packages'],[])
+
+    def test_original_profile_is_optional_and_only_display_fields_are_exposed(self):
+        self.assertIsNone(json.loads(self.request('/api/packages')[2])['before'])
+        before=self.root/'output'/'before';before.mkdir()
+        (before/'review-desktop.png').write_bytes(b'saved original')
+        (before/'review-mobile.png').write_bytes(b'saved original mobile')
+        (before/'metadata.json').write_text(json.dumps({'name':'Original person','note':'Saved profile',
+            'source_url':'https://www.linkedin.com/in/example/','private':'do not expose'}))
+        data=json.loads(self.request('/api/packages')[2])
+        self.assertEqual(data['before']['name'],'Original person')
+        self.assertEqual(data['before']['source_url'],'https://www.linkedin.com/in/example/')
+        self.assertNotIn('private',data['before'])
+        self.assertEqual(data['packages'][0]['style_name'],'Clare')
+        self.assertEqual(self.request('/before/review-desktop.png')[2],b'saved original')
+        self.assertEqual(self.request('/before/review-mobile.png')[2],b'saved original mobile')
+        for name in ('metadata.json','.env','profile.json','../.env','%2e%2e%2f.env'):
+            self.assertEqual(self.request('/before/'+name)[0],404)
+        (before/'metadata.json').write_text('{"source_url":"javascript:alert(1)","name":{},"note":[]}')
+        data=json.loads(self.request('/api/packages')[2])['before']
+        self.assertEqual(data['source_url'],'');self.assertEqual(data['name'],'');self.assertEqual(data['note'],'')
+
+    def test_original_profile_symlinks_never_expose_files(self):
+        outside=self.root/'outside';outside.mkdir()
+        (outside/'review-desktop.png').write_bytes(b'private')
+        before=self.root/'output'/'before';before.symlink_to(outside,target_is_directory=True)
+        self.assertIsNone(json.loads(self.request('/api/packages')[2])['before'])
+        self.assertEqual(self.request('/before/review-desktop.png')[0],409)
+        before.unlink();before.mkdir()
+        (before/'review-desktop.png').symlink_to(outside/'review-desktop.png')
+        self.assertIsNone(json.loads(self.request('/api/packages')[2])['before'])
+        self.assertEqual(self.request('/before/review-desktop.png')[0],409)
+
+    def test_original_profile_is_never_a_generated_option_or_download_member(self):
+        before=package(self.root/'output'/'before','Original profile')
+        (before/'review-desktop.png').write_bytes(b'original')
+        found=discover(self.root/'output')
+        self.assertEqual(list(found.values()),[self.folder])
+        with zipfile.ZipFile(io.BytesIO(archive(self.folder,'sources'))) as bundle:
+            self.assertFalse(any(name.startswith('before/') for name in bundle.namelist()))
+
+    def test_original_profile_identity_requires_matching_urls_or_names(self):
+        before=self.root/'output'/'before';before.mkdir()
+        (before/'review-desktop.png').write_bytes(b'original')
+        (before/'metadata.json').write_text(json.dumps({'name':'Test person','source_url':'https://www.linkedin.com/in/one/'}))
+        def matching(brief):
+            (self.folder/'brief.json').write_text(json.dumps(brief))
+            return json.loads(self.request('/api/packages')[2])['packages'][0]['before_compatible']
+        self.assertTrue(matching({'name':'Changed name','profile_url':'http://linkedin.com/in/ONE?trk=source'}))
+        self.assertFalse(matching({'name':'Test person','profile_url':'https://www.linkedin.com/in/two/'}))
+        self.assertTrue(matching({'name':' TEST   PERSON '}))
+        self.assertFalse(matching({'name':'Another person'}))
+        self.assertTrue(matching({}))
+        self.assertTrue(matching({'name':'Test person','profile_url':'javascript:alert(1)'}))
 
 
 if __name__=='__main__':unittest.main()

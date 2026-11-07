@@ -10,17 +10,21 @@ import io
 import json
 import mimetypes
 import re
+import unicodedata
 import zipfile
 from html.parser import HTMLParser
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path, PurePosixPath
-from urllib.parse import unquote, urlsplit
+from urllib.parse import quote, unquote, urlsplit
+
+from .styles import STYLES
 
 UPLOADS = ('banner.png', 'portrait.png', 'headline.txt')
 PREVIEWS = ('preview.png', 'preview-mobile.png', 'review-desktop.png', 'review-mobile.png')
 SOURCES = ('brief.json', 'banner.html', 'preview.html', 'preview-mobile.html',
            'banner-photo-cutout.png', 'banner-photo.png', 'background.png', 'background.jpg')
 ASSETS = frozenset((*UPLOADS, *PREVIEWS))
+BEFORE_ASSETS = frozenset(('review-desktop.png', 'review-mobile.png'))
 MAX_FILE = 64 * 1024 * 1024
 MAX_ARCHIVE = 256 * 1024 * 1024
 BLOCKED = {'source', 'sources', 'raw', 'cache', 'credentials', 'secrets', 'node_modules'}
@@ -69,6 +73,20 @@ def _has(root, name):
         return False
 
 
+def _render_qa(root):
+    """An existing partial QA write is an incomplete render, never permission."""
+    path = root / 'qa.json'
+    if not path.exists() and not path.is_symlink():
+        return {}
+    try:
+        qa = json.loads(_read(root, 'qa.json'))
+        if not isinstance(qa, dict):
+            raise ValueError('Invalid render state.')
+        return qa
+    except (OSError, ValueError):
+        return {'passed': False, 'acceptance': 'render_failed'}
+
+
 def _revision(folder):
     state = []
     for name in (*ASSETS, *SOURCES, 'qa.json', 'blind-review.json'):
@@ -91,7 +109,7 @@ def discover(root):
         if depth < 4:
             for child in sorted(folder.iterdir(), reverse=True):
                 if (child.is_dir() and not child.is_symlink() and not child.name.startswith('.')
-                        and child.name.lower() not in BLOCKED):
+                        and child.name.lower() not in BLOCKED | {'before'}):
                     pending.append((child, depth + 1))
     def order(item):
         folder = item[1]
@@ -100,9 +118,57 @@ def discover(root):
     return dict(sorted(found.items(), key=order))
 
 
+def _linkedin_profile(value):
+    """Canonical public profile URL, suitable for identity checks and links."""
+    try:
+        parsed = urlsplit(value) if isinstance(value, str) else None
+        if not (parsed and parsed.scheme in {'http', 'https'}
+                and parsed.hostname in {'linkedin.com', 'www.linkedin.com'}
+                and not parsed.username and not parsed.password and parsed.port in {None, 80, 443}
+                and re.fullmatch(r'/in/[A-Za-z0-9_%.-]+/?', parsed.path)):
+            return ''
+        slug = unquote(parsed.path.strip('/').split('/')[1]).casefold()
+        if not slug or any(char in slug for char in '/\\?#\x00'):
+            return ''
+        return 'https://www.linkedin.com/in/' + quote(slug, safe='-_.') + '/'
+    except ValueError:
+        return ''
+
+
+def _same_subject(brief, original):
+    if not original:
+        return True
+    actual_url = _linkedin_profile(brief.get('profile_url'))
+    original_url = _linkedin_profile(original.get('source_url'))
+    if actual_url and original_url:
+        return actual_url == original_url
+    def normalized(value):
+        return ' '.join(unicodedata.normalize('NFKC', value).casefold().split()) if isinstance(value, str) else ''
+    actual_name, original_name = normalized(brief.get('name')), normalized(original.get('name'))
+    return actual_name == original_name if actual_name and original_name else True
+
+
+def before_info(root):
+    """Expose only an optional saved original and its small display metadata."""
+    images = {mode: name if _has(root, 'before/' + name) else None
+              for mode, name in (('desktop', 'review-desktop.png'), ('mobile', 'review-mobile.png'))}
+    if not any(images.values()):
+        return None
+    metadata = _optional_json(root, 'before/metadata.json')
+    clean = {key: metadata[key][:limit] if isinstance(metadata.get(key), str) else ''
+             for key, limit in (('name', 240), ('note', 800))}
+    clean['source_url'] = _linkedin_profile(metadata.get('source_url'))
+    state = []
+    for name in (*BEFORE_ASSETS, 'metadata.json'):
+        if _has(root, 'before/' + name):
+            stat = _local(root, 'before/' + name).stat()
+            state.append((name, stat.st_size, stat.st_mtime_ns))
+    return {**images, **clean, 'revision': hashlib.sha256(repr(sorted(state)).encode()).hexdigest()[:20]}
+
+
 def package_info(identifier, folder, root):
     brief = _optional_json(folder, 'brief.json')
-    qa = _optional_json(folder, 'qa.json')
+    qa = _render_qa(folder)
     status = 'Draft · review before uploading'
     rendering = qa.get('acceptance') == 'render_in_progress'
     failed = qa.get('acceptance') == 'render_failed'
@@ -129,8 +195,13 @@ def package_info(identifier, folder, root):
     if failed:
         sources_ready = False
         source_message = 'Rendering did not finish. Ask your agent to rerender before downloading.'
+    style = str(brief.get('selected_style') or folder.name)
+    label, _, description = STYLES.get(style, {}).get('name', style.replace('-', ' ')).partition(' · ')
     return {'id': identifier, 'name': str(brief.get('name') or folder.name),
-            'style': str(brief.get('selected_style') or folder.name),
+            'profile_url': _linkedin_profile(brief.get('profile_url')),
+            'before_compatible': _same_subject(brief, before_info(root)),
+            'style': style, 'style_name': label, 'style_description': description,
+            'style_order': list(STYLES).index(style) if style in STYLES else len(STYLES),
             'folder': folder.relative_to(root).as_posix(), 'status': status, 'updating': rendering, 'downloads_ready': not (rendering or failed),
             'revision': _revision(folder), 'headline': _read(folder, 'headline.txt').decode('utf-8', errors='replace').strip(),
             'desktop': desktop, 'mobile': mobile,
@@ -240,7 +311,7 @@ def source_files(folder):
 
 
 def archive(folder, kind):
-    if _optional_json(folder, 'qa.json').get('acceptance') in {'render_in_progress', 'render_failed'}:
+    if _render_qa(folder).get('acceptance') in {'render_in_progress', 'render_failed'}:
         raise ValueError('The package render is incomplete. Ask your agent to finish it before downloading.')
     before = _revision(folder)
     if kind == 'uploads':
@@ -309,17 +380,26 @@ class ReviewHandler(BaseHTTPRequestHandler):
                 return
             packages = discover(self.server.root)
             if path == '/api/packages':
-                data = {'packages': [package_info(key, folder, self.server.root) for key, folder in packages.items()]}
+                data = {'packages': [package_info(key, folder, self.server.root) for key, folder in packages.items()],
+                        'before': before_info(self.server.root)}
                 self._send(200, json.dumps(data).encode(), 'application/json; charset=utf-8')
+                return
+            if path.startswith('/before/') and path[8:] in BEFORE_ASSETS:
+                raw = _read(self.server.root, 'before/' + path[8:])
+                self._send(200, raw, 'image/png')
                 return
             parts = path.strip('/').split('/')
             if len(parts) == 3 and parts[1] in packages:
                 kind, identifier, name = parts
                 folder = packages[identifier]
                 if kind == 'asset' and name in ASSETS:
-                    if name in UPLOADS and _optional_json(folder, 'qa.json').get('acceptance') in {'render_in_progress', 'render_failed'}:
+                    if name in UPLOADS and _render_qa(folder).get('acceptance') in {'render_in_progress', 'render_failed'}:
                         raise ValueError('The upload files are not complete.')
+                    before = _revision(folder) if name in UPLOADS else None
                     raw = _read(folder, name)
+                    if name in UPLOADS and (before != _revision(folder) or
+                            _render_qa(folder).get('acceptance') in {'render_in_progress', 'render_failed'}):
+                        raise ValueError('The upload files changed during download.')
                     self._send(200, raw, mimetypes.guess_type(name)[0] or 'application/octet-stream',
                                filename=name if name == 'headline.txt' else None)
                     return
@@ -344,30 +424,4 @@ def serve(output, port=8765):
     return 0
 
 
-PAGE = r'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Your LinkedIn packaging</title><style>
-*{box-sizing:border-box}body{margin:0;background:#020b18;color:#d0d6e0;font:16px/1.55 system-ui,-apple-system,sans-serif}main{max-width:1120px;margin:auto;padding:42px 24px 64px}h1,h2,p{margin:0}h1{font-size:clamp(28px,4vw,42px);letter-spacing:-.04em;line-height:1.15}h2{font-size:22px;letter-spacing:-.025em}.muted{color:#8a93a3}.intro{margin-top:12px;max-width:650px}.eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:.16em;color:#6091ff;margin-bottom:12px}.notice{margin-top:24px;padding:14px 18px;background:#07142a;border:1px solid #d0d6e01a;border-radius:12px}.package{margin-top:36px;padding:24px;background:linear-gradient(145deg,#07142a,#040e1e);border:1px solid #d0d6e01a;border-radius:20px}.row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px}.status{font-size:13px;color:#a4aec0;margin-top:5px}.tabs{display:flex;gap:8px;flex-wrap:wrap}button,a.button{font:600 14px/1.4 system-ui;color:#d0d6e0;border:1px solid #d0d6e030;background:transparent;border-radius:999px;min-height:44px;padding:11px 17px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;text-align:center}button:hover,a.button:hover{border-color:#6894ff}button:focus-visible,a:focus-visible,textarea:focus-visible{outline:2px solid #85a8ff;outline-offset:3px}button[aria-pressed=true],a.primary{background:#2863f0;border-color:#2863f0;color:white}button:disabled,a.disabled{opacity:.45;pointer-events:none}.preview{display:flex;justify-content:center;margin-top:22px;min-height:120px}.preview img{max-width:100%;height:auto;border-radius:12px;border:1px solid #d0d6e020;object-fit:contain;align-self:flex-start}.preview img.mobile{max-width:min(390px,100%)}.headline{margin-top:20px;padding:18px;border:1px solid #d0d6e020;background:#020b18;border-radius:12px}.headline p{overflow-wrap:anywhere}.headline button{margin-top:12px}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.assets{margin-top:14px;display:flex;gap:18px;flex-wrap:wrap}.assets a{color:#80a7ff;font-size:14px;min-height:44px;display:inline-flex;align-items:center}.feedback{margin-top:22px;border-top:1px solid #d0d6e01a;padding-top:20px}.feedback label{font-weight:600;display:block;margin-bottom:10px}textarea{width:100%;min-height:90px;background:#020b18;color:#d0d6e0;border:1px solid #d0d6e030;border-radius:10px;padding:12px;font:inherit;resize:vertical}.feedback .row{margin-top:10px}.small{font-size:13px}.empty{padding:42px 0;max-width:600px}.error{color:#ffc78a}footer{margin-top:24px;font-size:13px;color:#8a93a3}a{color:#80a7ff}@media(max-width:600px){main{padding:28px 20px 40px}.package{padding:16px;margin-top:26px}.actions a{flex:1 1 140px}.row{align-items:flex-start}.feedback .row{display:block}.feedback button{margin-top:10px}}
-</style></head><body><main><p class="eyebrow">Local preview</p><h1>Your LinkedIn packaging</h1><p class="intro muted">Review the full profile, download your files, or send changes back to your AI agent.</p><div id="connection" class="notice" role="status">Loading your packages…</div><div id="packages"></div><footer>Only available on this computer. Nothing posts to LinkedIn.</footer></main><script>
-const root=document.getElementById('packages'),connection=document.getElementById('connection'),cards=new Map();
-const el=(tag,text,cls)=>{const node=document.createElement(tag);if(text!==undefined)node.textContent=text;if(cls)node.className=cls;return node};
-async function copy(text,button){try{await navigator.clipboard.writeText(text);button.textContent='Copied';setTimeout(()=>button.textContent=button.dataset.label,1800)}catch{connection.textContent='Copy failed. Select the text and copy it manually.'}}
-function copyButton(label,getText){const b=el('button',label);b.type='button';b.dataset.label=label;b.addEventListener('click',()=>copy(getText(),b));return b}
-function asset(p,name){return '/asset/'+p.id+'/'+name+'?v='+p.revision}
-function makeCard(p){
- const card=el('section',undefined,'package');card.dataset.id=p.id;const head=el('div',undefined,'row'),titles=el('div'),name=el('h2'),revision=el('p',undefined,'small muted'),status=el('p',undefined,'status'),tabs=el('div',undefined,'tabs');titles.append(name,revision,status);head.append(titles,tabs);
- const preview=el('div',undefined,'preview'),image=el('img');image.alt='Assembled LinkedIn profile preview';preview.append(image);
- const headline=el('div',undefined,'headline'),headlineText=el('p');headline.append(headlineText,copyButton('Copy headline',()=>cards.get(p.id).data.headline));
- const actions=el('div',undefined,'actions'),uploads=el('a','Download upload files','button primary'),sources=el('a','Download editable sources','button');uploads.href='/download/'+p.id+'/uploads.zip';sources.href='/download/'+p.id+'/sources.zip';actions.append(uploads,sources);
- const sourceNote=el('p',undefined,'small muted');
- const assets=el('div',undefined,'assets');for(const [file,label] of [['banner.png','Banner PNG'],['portrait.png','Portrait PNG'],['headline.txt','Headline TXT']]){const a=el('a',label);a.href='/asset/'+p.id+'/'+file;a.download=file;assets.append(a)}
- const feedback=el('div',undefined,'feedback'),label=el('label','Want a change?'),text=el('textarea');text.id='feedback-'+p.id;label.htmlFor=text.id;text.placeholder='Make the headline more specific. Use a warmer background…';const feedbackRow=el('div',undefined,'row'),hint=el('p','Paste the feedback into the same agent chat. Your preview updates here after it rerenders.', 'small muted');
- const feedbackButton=copyButton('Copy feedback',()=>{const d=cards.get(p.id).data;return 'Please revise my LinkedIn package '+d.folder+' ('+d.style+').\nChanges: '+(text.value.trim()||'[describe what to change]')+'\nKeep approved facts and identity intact. Reuse unchanged assets, save as a new revision, rerender it, visually check desktop and mobile, and give me the updated local preview plus upload and editable source files.'});feedbackRow.append(hint,feedbackButton);feedback.append(label,text,feedbackRow);
- card.append(head,preview,headline,actions,sourceNote,assets,feedback);
- const state={card,name,revision,status,tabs,image,headlineText,uploads,sources,sourceNote,data:p,mode:'desktop'};cards.set(p.id,state);
- for(const mode of ['desktop','mobile']){const button=el('button',mode==='desktop'?'Desktop':'Mobile');button.type='button';button.addEventListener('click',()=>{state.mode=mode;update(state,state.data)});tabs.append(button)}
- root.append(card);update(state,p);return state;
-}
-function update(state,p){state.data=p;state.name.textContent=p.name+' · '+p.style.replaceAll('-',' ');state.revision.textContent='Version: '+(p.folder==='.'?'current package':p.folder);state.status.textContent=p.status;state.headlineText.textContent=p.headline;const file=p[state.mode]||p.desktop||p.mobile;state.image.src=asset(p,file);state.image.className=state.mode==='mobile'?'mobile':'';[...state.tabs.children].forEach((button,i)=>{button.setAttribute('aria-pressed',String((i?'mobile':'desktop')===state.mode));button.disabled=!p[i?'mobile':'desktop']});state.uploads.classList.toggle('disabled',!p.downloads_ready);state.uploads.setAttribute('aria-disabled',String(!p.downloads_ready));state.card.querySelectorAll('.assets a').forEach(a=>{a.classList.toggle('disabled',!p.downloads_ready);a.style.pointerEvents=!p.downloads_ready?'none':'';a.setAttribute('aria-disabled',String(!p.downloads_ready));a.tabIndex=p.downloads_ready?0:-1});state.sources.classList.toggle('disabled',!p.downloads_ready||!p.source_available);state.sources.setAttribute('aria-disabled',String(!p.downloads_ready||!p.source_available));state.sourceNote.textContent=p.source_message||'';if(!p.downloads_ready){state.uploads.removeAttribute('href')}else{state.uploads.href='/download/'+p.id+'/uploads.zip'}if(!p.downloads_ready||!p.source_available){state.sources.removeAttribute('href')}else{state.sources.href='/download/'+p.id+'/sources.zip'};}
-let inFlight=false;
-async function refresh(){if(inFlight)return;inFlight=true;try{const response=await fetch('/api/packages',{cache:'no-store'});if(!response.ok)throw Error();const data=await response.json();const ids=new Set(data.packages.map(p=>p.id));for(const [id,state]of cards)if(!ids.has(id)){state.card.remove();cards.delete(id)}for(const [index,p] of data.packages.entries()){const old=cards.get(p.id);const state=old||makeCard(p);if(old&&(old.data.revision!==p.revision||old.data.status!==p.status||old.data.source_available!==p.source_available))update(old,p);if(root.children[index]!==state.card&&!state.card.contains(document.activeElement))root.insertBefore(state.card,root.children[index]||null)}connection.textContent=data.packages.length?'Changes refresh automatically. Check the draft before using it.':'No packages yet. Ask your agent to generate into the selected output folder; this page will update automatically.';connection.classList.toggle('error',false)}catch{connection.textContent='Preview connection lost. Ask your agent to restart the local preview.';connection.classList.add('error')}finally{inFlight=false}}
-refresh();setInterval(refresh,2500);
-</script></body></html>'''
+from .serve_page import PAGE

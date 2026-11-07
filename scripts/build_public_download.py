@@ -30,7 +30,8 @@ REQUIRED = {
     '.env.example', '.gitignore', 'README.md', 'AGENTS.md', 'CLAUDE.md', 'LICENSE',
     'THIRD_PARTY.md', 'pyproject.toml', 'setup.sh', 'setup.ps1', 'package.sh',
     'linkedin_pack/__main__.py', 'linkedin_pack/cli.py', 'linkedin_pack/serve.py',
-    'docs/agent-workflow.md',
+    'linkedin_pack/serve_page.py', 'linkedin_pack/before.py',
+    'docs/agent-workflow.md', 'docs/before-preview.md',
 }
 FONT_LICENSES = {
     'Inter.ttf': 'Inter.OFL.txt',

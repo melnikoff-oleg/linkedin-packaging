@@ -347,6 +347,13 @@ def create(args):
     keys = load_keys()
     profile = (_collect_subject(url, source_dir, keys) if args.linkedin else
                _context_subject(args.name.strip(), args.context.strip(), args.portrait or args.reuse_portrait, source_dir))
+    if args.linkedin:
+        from .before import capture_before, BeforeUnavailable
+        try:
+            capture_before(source_dir / 'profile.json', args.before_output or output)
+            print('Original profile saved for the before-and-after preview.', flush=True)
+        except BeforeUnavailable as error:
+            print('Before preview: ' + str(error), file=sys.stderr)
     website = None
     if args.website:
         print('Collecting website content and branding…', flush=True)
@@ -482,6 +489,7 @@ def build_parser():
     choice.add_argument('--style', choices=STYLES, help='Fill this original reference’s fixed layout and type sizes with source-grounded subject copy.')
     choice.add_argument('--all-styles', action='store_true', help='Generate ten packages: up to ten portraits/copy requests, five banner shots, five cutouts and ten independent reviews.')
     command.add_argument('--output', help='Destination folder (default output/<profile>).')
+    command.add_argument('--before-output', help='Local gallery root for the original before preview (defaults to --output).')
     command.add_argument('--background', help='Optional local landscape/background image for the banner.')
     command = commands.add_parser('render', help='Render a prepared brief and portrait entirely offline.')
     command.add_argument('--brief', required=True)
@@ -493,6 +501,11 @@ def build_parser():
     command=commands.add_parser('review',help='Independently judge finished desktop/mobile profile images as a prospective buyer.')
     command.add_argument('--output',required=True,help='Rendered package folder containing qa.json and neutral review images.')
     command.add_argument('--audience',required=True,help='Concise buyer persona only; do not include creator rationale or expected verdict.')
+    command = commands.add_parser('before', help='Build an original-profile preview from saved local LinkedIn assets; no API calls.')
+    command.add_argument('--profile', required=True, help='Normalized original profile JSON with local portrait_file/banner_file fields.')
+    command.add_argument('--output', required=True, help='Gallery root; previews are saved in its before/ folder.')
+    command.add_argument('--portrait', help='Original local profile photo, if not named in the source JSON.')
+    command.add_argument('--banner', help='Original local banner, if not named in the source JSON.')
     command = commands.add_parser('serve', help='Open a local review page with upload and editable-source downloads.')
     command.add_argument('--output', default=str(ROOT / 'output'), help='A package folder or parent output folder.')
     command.add_argument('--port', type=int, default=8765, help='Local port (0 chooses an available port).')
@@ -518,6 +531,11 @@ def main(argv=None):
                                background=args.background,banner_photo=Path(args.banner_photo) if args.banner_photo else None) else 2
         if args.command=='review':
             return 0 if _run_independent_review(Path(args.output),args.audience) else 2
+        if args.command == 'before':
+            from .before import capture_before
+            result = capture_before(args.profile, args.output, portrait=args.portrait, banner=args.banner)
+            print('Original profile preview is ready.' + (' Reused unchanged capture.' if result['cached'] else ''))
+            return 0
         if args.command == 'serve':
             from .serve import serve
             return serve(args.output, args.port)

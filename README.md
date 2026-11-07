@@ -17,12 +17,12 @@ Branding: [logo, colors, fonts, or use my website]
 About me: [what I do, who I help, and real results]
 Photo: [attach a clear photo]
 
-Handle setup and generate all 10 styles using my branding. Show all 10 together in a localhost preview so I can pick my favorite. Refine my choice from my feedback, then give me the banner, portrait, headline, and editable source files.
+Handle setup and generate all 10 styles using my branding. Show all 10 together in a localhost preview, alongside my original profile when available, so I can pick my favorite. Refine my choice from my feedback, then give me the banner, portrait, headline, and editable source files.
 ```
 
 Your agent handles setup and generates all 10 styles before you choose. You do not need to type terminal commands. Keep the agent session running while viewing the local page. Pick a favorite and give feedback in the same chat; the page updates after the agent rerenders.
 
-The preview offers **Upload files** and **Editable source** downloads. Your files also stay in `output/` inside this folder. Nothing is posted to LinkedIn automatically.
+When the original is available, the preview shows it alongside each style. Use presentation mode to show the results, or download **Upload files** and **Editable source**. Your files also stay in `output/` inside this folder. Nothing is posted to LinkedIn automatically.
 
 An agent with local file and command access is required. It can use tools and assets you already have; if a requested image or data service needs a key, it will help you add your own privately to `.env`. Provider usage may cost extra. Python installation may need one installer step on a new computer. Account setup and generation time vary.
 
