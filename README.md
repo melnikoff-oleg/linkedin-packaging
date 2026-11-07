@@ -1,6 +1,6 @@
 # LinkedIn Packaging
 
-Make a banner, portrait and headline with **Claude Code or Codex**. Tell your agent about yourself, review the result in your browser, and ask for changes in plain English.
+Make a banner, portrait and headline with **Claude Code or Codex**. Get all 10 styles, pick your favorite in your browser, and ask for changes in plain English.
 
 ## Start here
 
@@ -16,12 +16,11 @@ Website: [URL, if any]
 Branding: [logo, colors, fonts, or use my website]
 About me: [what I do, who I help, and real results]
 Photo: [attach a clear photo]
-Style: [choose for me, Clare, Lara, or Charlie]
 
-Handle setup, choose a suitable style, and use my branding. Show me a localhost preview. Revise it from my feedback, then give me the banner, portrait, headline, and editable source files.
+Handle setup and generate all 10 styles using my branding. Show all 10 together in a localhost preview so I can pick my favorite. Refine my choice from my feedback, then give me the banner, portrait, headline, and editable source files.
 ```
 
-Your agent reads the included project instructions, runs the tools and starts the preview. You do not need to type terminal commands. Keep the agent session running while viewing the local page. Copy feedback from the preview back into the same chat; the page updates after the agent rerenders.
+Your agent handles setup and generates all 10 styles before you choose. You do not need to type terminal commands. Keep the agent session running while viewing the local page. Pick a favorite and give feedback in the same chat; the page updates after the agent rerenders.
 
 The preview offers **Upload files** and **Editable source** downloads. Your files also stay in `output/` inside this folder. Nothing is posted to LinkedIn automatically.
 
